@@ -17,13 +17,13 @@ const path = require('node:path');
 
  await page.locator('#prompt').fill('tarefa: validar interface');
  await page.locator('#form').evaluate(el=>el.requestSubmit());
- await page.waitForTimeout(1100);
+ await page.waitForFunction(()=>localStorage.getItem('aion-orb-organizer')?.includes('validar interface'));
  await page.locator('[data-panel="metas"]').click();
  assert.match(await page.locator('#panelText').innerText(),/validar interface/);
  await page.locator('#closePanel').click();
  await page.locator('#prompt').fill('nota: teste navegador');
  await page.locator('#form').evaluate(el=>el.requestSubmit());
- await page.waitForTimeout(1100);
+ await page.waitForFunction(()=>localStorage.getItem('aion-orb-organizer')?.includes('teste navegador'));
  await page.locator('[data-panel="projetos"]').click();
  assert.match(await page.locator('#panelText').innerText(),/teste navegador/);
  await page.locator('#closePanel').click();
@@ -38,7 +38,7 @@ const path = require('node:path');
  page.once('dialog',dialog=>dialog.accept());
  await page.locator('#file').setInputFiles({name:'aion-orb-backup.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify({version:1,tasks:[{text:'Restaurado pelo navegador',done:false}],notes:['Backup válido'],events:[],history:[]}))});
  // A confirmação é acionada durante a leitura assíncrona do arquivo.
- await page.waitForTimeout(300);
+ await page.waitForFunction(()=>localStorage.getItem('aion-orb-organizer')?.includes('Restaurado pelo navegador'));
  await page.locator('[data-panel="metas"]').click();
  assert.match(await page.locator('#panelText').innerText(),/Restaurado pelo navegador/);
  await page.locator('#closePanel').click();
