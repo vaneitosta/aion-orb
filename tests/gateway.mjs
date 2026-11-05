@@ -1,9 +1,10 @@
 import assert from 'node:assert/strict';
 import {once} from 'node:events';
-import {server} from '../server/gateway.mjs';
+
 
 process.env.NODE_ENV = 'test';
 delete process.env.OPENAI_API_KEY;
+const {server} = await import('../server/gateway.mjs');
 await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
 const base = 'http://127.0.0.1:' + server.address().port;
 try {
