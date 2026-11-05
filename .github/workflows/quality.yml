@@ -24,8 +24,12 @@ jobs:
       - name: Install Playwright and Chromium
         run: |
           npm install --no-save playwright
-          npx playwright install --with-deps chromium
+          npx playwright install --with-deps chromium webkit
       - name: Run mobile viewport browser checks
+        run: node tests/browser.cjs
+      - name: Run Safari-engine mobile checks
+        env:
+          AION_BROWSER: webkit
         run: node tests/browser.cjs
       - name: Save screenshot
         if: always()
