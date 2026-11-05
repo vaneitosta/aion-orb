@@ -1,0 +1,12 @@
+{
+  "name": "Aion Orb",
+  "short_name": "Aion",
+  "description": "Organizador pessoal Aion Orb",
+  "lang": "pt-BR",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#070410",
+  "theme_color": "#080414",
+  "icons": []
+}
