@@ -15,6 +15,7 @@ jobs:
       - name: Test AION Orb interactions
         run: |
           node tests/smoke.cjs
+          node tests/pwa.cjs
           node tests/gateway.mjs
   browser:
     runs-on: ubuntu-latest
