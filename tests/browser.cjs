@@ -1,9 +1,10 @@
-const { chromium } = require('playwright');
+const { chromium, webkit } = require('playwright');
 const assert = require('node:assert/strict');
 const { pathToFileURL } = require('node:url');
 const path = require('node:path');
 (async()=>{
- const browser=await chromium.launch({headless:true});
+ const engine=process.env.AION_BROWSER==='webkit'?webkit:chromium;
+ const browser=await engine.launch({headless:true});
  const page=await browser.newPage({viewport:{width:390,height:844},deviceScaleFactor:2,isMobile:true,hasTouch:true});
  const errors=[];page.on('pageerror',e=>errors.push(e.message));
  await page.addInitScript(()=>{window.SpeechRecognition=class{start(){window.__recognizer=this}stop(){this.onend?.()}};window.speechSynthesis={cancel(){},speak(u){setTimeout(()=>u.onend?.(),0)}};});
@@ -49,5 +50,5 @@ const path = require('node:path');
  await page.locator('#closePanel').click();
  await page.screenshot({path:'aion-mobile-test.png',fullPage:true});
  assert.deepEqual(errors,[],'Browser console page errors');
- await browser.close();console.log('Chromium mobile browser checks: PASS');
+ await browser.close();console.log((process.env.AION_BROWSER||'chromium')+' mobile browser checks: PASS');
 })().catch(e=>{console.error(e);process.exitCode=1});
