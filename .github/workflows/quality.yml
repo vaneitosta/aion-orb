@@ -29,7 +29,9 @@ jobs:
           npm install --no-save playwright
           npx playwright install --with-deps chromium webkit
       - name: Run mobile viewport browser checks
-        run: node tests/browser.cjs
+        run: |
+          node tests/browser.cjs
+          node tests/offline.cjs
       - name: Run Safari-engine mobile checks
         env:
           AION_BROWSER: webkit
