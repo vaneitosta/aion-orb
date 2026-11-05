@@ -24,6 +24,11 @@ const path = require('node:path');
  await page.locator('#prompt').fill('nota: teste navegador');
  await page.locator('#form').evaluate(el=>el.requestSubmit());
  await page.waitForFunction(()=>localStorage.getItem('aion-orb-organizer')?.includes('teste navegador'));
+ // A recarga deve preservar os registros locais e reativar os controles.
+ await page.reload();
+ await page.locator('[data-panel="metas"]').click();
+ assert.match(await page.locator('#panelText').innerText(),/validar interface/);
+ await page.locator('#closePanel').click();
  await page.locator('[data-panel="projetos"]').click();
  assert.match(await page.locator('#panelText').innerText(),/teste navegador/);
  await page.locator('#closePanel').click();
