@@ -1,7 +1,7 @@
 name: AION Dashboard automated tests
 on:
   push:
-    branches: [aion-dashboard-pages]
+    branches: [aion-dashboard-pages, aion-dashboard-v06-secure-candidate]
     paths:
       - 'docs/dashboard/**'
       - 'docs/index.html'
