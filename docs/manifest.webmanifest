@@ -1,0 +1,19 @@
+{
+  "name": "AION Dashboard | Estudos, Projetos e Trabalho",
+  "short_name": "AION",
+  "description": "Central pessoal de atividades, calendário e estudos. Dados armazenados localmente.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#091326",
+  "theme_color": "#0b1730",
+  "lang": "pt-BR",
+  "icons": [
+    {
+      "src": "./aion-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
