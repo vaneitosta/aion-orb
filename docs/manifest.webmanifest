@@ -1,16 +1,16 @@
 {
-  "name": "AION Dashboard | Estudos, Projetos e Trabalho",
-  "short_name": "AION",
-  "description": "Central pessoal de atividades, calendário e estudos. Dados armazenados localmente.",
+  "name": "Aion Orb",
+  "short_name": "Aion",
+  "description": "Organizador pessoal Aion Orb",
+  "lang": "pt-BR",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#091326",
-  "theme_color": "#0b1730",
-  "lang": "pt-BR",
+  "background_color": "#070410",
+  "theme_color": "#080414",
   "icons": [
     {
-      "src": "./aion-icon.svg",
+      "src": "./icon.svg",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any maskable"
