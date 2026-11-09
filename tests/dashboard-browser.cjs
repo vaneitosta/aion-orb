@@ -52,7 +52,7 @@ function ok(message){++passed;console.log('PASS '+BROWSER+' '+message);}
       assert.match(await page.locator('#heading').innerText(),/Seu panorama/);
       ok(profile.name+' startup');
       for (const [tab,title] of [
-        ['calendario','Seu tempo'],['estudos','Estudos em evolução'],
+        ['calendario','Seu tempo'],['semana','Sua semana'],['estudos','Estudos em evolução'],
         ['projetos','Projetos em movimento'],['trabalho','Trabalho'],
         ['geral','Seu panorama']
       ]){
@@ -135,6 +135,43 @@ function ok(message){++passed;console.log('PASS '+BROWSER+' '+message);}
       });
       await page.waitForFunction(()=>JSON.parse(localStorage.getItem('aion-dashboard-local-v2')).tasks.length===3);
       ok(profile.name+' JSON backup export/import');
+
+      await page.locator('[data-tab="semana"]').click();
+      assert.equal(await page.locator('#week-grid .week-card').count(),7);
+      assert.match(await page.locator('#week-metrics').innerText(),/Previstas/);
+      const initialWeek=await page.locator('#week-range').innerText();
+      await page.locator('#week-next').click();
+      assert.notEqual(await page.locator('#week-range').innerText(),initialWeek);
+      await page.locator('#week-prev').click();
+      assert.equal(await page.locator('#week-range').innerText(),initialWeek);
+      await page.locator('#week-current').click();
+      assert.equal(await page.locator('#week-task-date').inputValue(),today);
+      ok(profile.name+' week navigation and day selection');
+
+      await page.locator('#week-task-name').fill('Planejar pesquisa');
+      await page.locator('#week-task-type').selectOption('estudos');
+      await page.locator('#week-task-priority').selectOption('high');
+      await page.locator('#week-form button[type=submit]').click();
+      assert.match(await page.locator('#week-day-tasks').innerText(),/Planejar pesquisa/);
+      state=await page.evaluate(()=>JSON.parse(localStorage.getItem('aion-dashboard-local-v2')));
+      assert.equal(state.tasks.length,4);
+      assert.equal(state.tasks.find(t=>t.name==='Planejar pesquisa').due,today);
+      assert.match(await page.locator('#week-metrics').innerText(),/Concluídas/);
+      await page.locator('#week-day-tasks [data-complete]').first().click();
+      state=await page.evaluate(()=>JSON.parse(localStorage.getItem('aion-dashboard-local-v2')));
+      assert.equal(state.tasks.find(t=>t.name==='Planejar pesquisa').done,true);
+      await page.locator('[data-week-open="'+today+'"]').click();
+      assert.match(await page.locator('#day-list').innerText(),/Planejar pesquisa/);
+      ok(profile.name+' weekly task creation, completion, calendar link');
+      await page.locator('[data-tab="semana"]').click();
+      const weekLayout=await page.evaluate(()=>({scrollWidth:document.documentElement.scrollWidth,width:innerWidth}));
+      assert.ok(weekLayout.scrollWidth<=weekLayout.width+2,'Weekly horizontal overflow '+JSON.stringify(weekLayout));
+      if(profile.name!=='desktop'){
+        const wFont=await page.locator('#week-task-name').evaluate(el=>parseFloat(getComputedStyle(el).fontSize));
+        assert.ok(wFont>=16,'Week form text size below 16px on mobile');
+      }
+      ok(profile.name+' weekly responsive layout');
+
 
       await page.locator('[data-tab="estudos"]').click();
       const layout=await page.evaluate(()=>({scrollWidth:document.documentElement.scrollWidth,width:window.innerWidth}));
