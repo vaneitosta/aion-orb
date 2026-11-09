@@ -1,0 +1,43 @@
+name: AION Dashboard automated tests
+on:
+  push:
+    branches: [aion-dashboard-pages]
+    paths:
+      - 'docs/dashboard/**'
+      - 'docs/index.html'
+      - 'tests/dashboard-browser.cjs'
+      - '.github/workflows/dashboard-tests.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  dashboard-browser:
+    name: Dashboard E2E (${{ matrix.browser }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        browser: [chromium, webkit]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install test engine
+        run: |
+          npm install --no-save playwright@1.57.0
+          npx playwright install --with-deps ${{ matrix.browser }}
+      - name: Run dashboard browser regression tests
+        env:
+          AION_BROWSER: ${{ matrix.browser }}
+        run: node tests/dashboard-browser.cjs
+      - name: Attach browser screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: dashboard-${{ matrix.browser }}-screenshots
+          path: dashboard-test-artifacts/
+          if-no-files-found: ignore
