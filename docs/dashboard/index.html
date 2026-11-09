@@ -1,4 +1,4 @@
-<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#0b1730"><meta name="description" content="AION Dashboard v0.4: estudos, projetos, trabalho e calendário com dados locais."><title>AION | Dashboard v0.4</title><style>
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#0b1730"><meta name="description" content="AION Dashboard v0.5: estudos, projetos, trabalho e calendário com dados locais."><title>AION | Dashboard v0.5</title><style>
 :root{font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif;color:#ecf4ff;background:#091326;font-synthesis:none}*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 65% -15%,#254771 0,transparent 38%),#091326}button,input,select{font:inherit}button{cursor:pointer}.app{display:flex;min-height:100vh}.side{width:212px;flex-shrink:0;padding:25px 14px;background:#0d1b32;border-right:1px solid #253650}.brand{font-size:24px;font-weight:850;letter-spacing:.13em;padding:4px 13px 25px}.brand span{color:#67c8ff}.nav{display:flex;flex-direction:column;gap:7px}.nav button{border:0;color:#a8bed8;background:transparent;text-align:left;padding:13px 15px;border-radius:11px}.nav button.active,.nav button:hover{background:#223d68;color:white}.side-note{font-size:12px;color:#7895b5;line-height:1.6;margin:35px 13px}.main{width:100%;min-width:0;padding:27px clamp(16px,3vw,45px) 50px;max-width:1600px;margin:auto}.top{display:flex;align-items:center;justify-content:space-between;gap:15px}.eyebrow{color:#89a5c5;font-size:12px;letter-spacing:.12em;text-transform:uppercase}h1{font-size:clamp(25px,3vw,37px);margin:8px 0 5px;font-weight:780}p{color:#9eb5cd;margin:0;line-height:1.5}.badge{font-size:12px;color:#a6e3cb;border:1px solid #315f69;border-radius:30px;padding:8px 12px;white-space:nowrap}.summary{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:27px 0}.tile,.panel{background:#12233e;border:1px solid #263e5d;border-radius:16px;box-shadow:0 12px 32px #050d1c22}.tile{padding:19px}.tile .name{font-size:13px;color:#a5bbd4}.tile strong{display:block;font-size:30px;margin:12px 0 4px}.tile small{color:#7fb0d4}.grid{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(280px,1fr);gap:15px}.panel{padding:21px;min-width:0}.panel h2{font-size:17px;font-weight:650;margin:0 0 6px}.between{display:flex;align-items:center;justify-content:space-between;gap:12px}.hint{font-size:12px;color:#8fa8c4}.forecast{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px;margin-top:20px}.day{padding:13px 6px;text-align:center;border-radius:11px;background:#1b3151;border:1px solid #345171}.day.today{background:#224c7c;border-color:#539cdc}.day b,.day em,.day small{display:block}.day b{font-size:12px}.day em{font-style:normal;font-size:21px;margin:13px 0;color:#82cfff}.day small{font-size:11px;color:#abc3dd}.chart{margin-top:25px;width:100%;height:215px;display:block}.legend{display:flex;justify-content:space-between;font-size:12px;color:#85a0be;gap:10px}.list{margin-top:15px;display:flex;flex-direction:column;gap:9px}.task{display:flex;align-items:center;gap:10px;padding:13px;border:1px solid #294262;border-radius:11px;background:#1a2f4e}.task input{accent-color:#5ac9bd;width:17px;height:17px}.task-main{flex:1;min-width:0}.task-title{display:block;font-size:14px;overflow-wrap:anywhere}.task.done .task-title{text-decoration:line-through;color:#859bb5}.task small{font-size:11px;color:#8ea9c5}.del{color:#9db6d2;background:transparent;border:0;padding:4px 7px}.form{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.form input,.form select{background:#0e1e36;color:#f1f7ff;border:1px solid #355273;padding:11px 12px;border-radius:9px;min-width:0}.form input{flex:1;min-width:130px}.primary{background:#f8c94e;color:#162038;border:0;border-radius:9px;font-weight:750;padding:11px 15px}.secondary{background:#203d62;border:1px solid #395b80;color:#dbeafa;border-radius:9px;padding:10px 13px}.section-note{font-size:12px;color:#8fa9c5;margin-top:14px}.lower{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-top:15px}.progress{background:#233c5b;height:9px;border-radius:30px;overflow:hidden;margin:14px 0}.progress>div{height:100%;background:linear-gradient(90deg,#43b4ce,#9fe5b7);border-radius:30px}.category{display:flex;justify-content:space-between;font-size:13px;margin-top:13px;color:#b9cee3}.toast{position:fixed;bottom:20px;right:20px;background:#244f65;color:#f1ffff;border-radius:10px;padding:12px 18px;display:none}.hidden{display:none!important}.empty{padding:20px;text-align:center;color:#8daac6;border:1px dashed #416083;border-radius:12px}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}.foot{font-size:12px;color:#7896b3;margin-top:22px}@media(max-width:950px){.side{width:75px;padding:23px 8px}.brand{font-size:13px;padding:7px 4px 20px}.brand span{display:none}.nav button{font-size:0;text-align:center}.nav button::first-letter{font-size:17px}.side-note{display:none}.summary{grid-template-columns:repeat(2,1fr)}}@media(max-width:650px){.app{display:block}.side{width:100%;padding:12px;border-right:0;border-bottom:1px solid #334966;display:flex;align-items:center;gap:8px;overflow:auto}.brand{padding:6px;font-size:16px}.nav{flex-direction:row;flex:1;justify-content:flex-end;gap:3px}.nav button{font-size:11px;padding:9px 8px;white-space:nowrap}.nav button::first-letter{font-size:inherit}.main{padding:22px 13px}.summary{gap:8px;margin:18px 0}.tile{padding:14px}.tile strong{font-size:24px}.grid,.lower{grid-template-columns:1fr}.panel{padding:15px}.forecast{gap:4px}.day{padding:11px 2px}.day b{font-size:10px}.day em{font-size:17px}.day small{font-size:10px}.badge{display:none}}
 
 .nav button{font-size:13px}.nav button.active{box-shadow:inset 3px 0 #66c9f9}.nav-sep{border-top:1px solid #2c3e58;margin:12px 6px}.form textarea{width:100%;background:#0e1e36;color:#fff;border:1px solid #355273;padding:10px;border-radius:9px}.view{display:none}.view.active{display:block}.wide-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:15px;margin-top:15px}.toolbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.toolbar select,.toolbar input,.study-form input,.study-form select{background:#0e1e36;color:#eef7ff;border:1px solid #355273;border-radius:9px;padding:10px;min-width:0}.toolbar select,.toolbar input{max-width:200px}.calendar-week{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:5px;margin-top:13px}.cal-head{text-align:center;font-size:11px;color:#91aeca;padding:10px 0}.cal-day{min-height:100px;border:1px solid #2b4567;background:#142844;color:#ecf4ff;border-radius:10px;padding:8px;text-align:left;display:flex;flex-direction:column;gap:5px}.cal-day:hover,.cal-day.selected{border-color:#72cfff;background:#20456a}.cal-day.muted{opacity:.38}.cal-day.today .cal-number{color:#f8c94e}.cal-number{font-size:12px;font-weight:700}.cal-count{font-size:10px;color:#8bb5d9}.cal-pill{display:block;border-radius:5px;padding:3px 5px;font-size:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;background:#2a5670;color:#e3f4ff}.cal-pill.estudos{background:#364c89}.cal-pill.projetos{background:#415a69}.cal-pill.trabalho{background:#5e4937}.mini-list{margin-top:12px;display:flex;flex-direction:column;gap:9px}.mini-item{padding:11px;border:1px solid #2c4564;border-radius:10px;display:flex;align-items:center;gap:8px}.mini-item .title{flex:1;overflow-wrap:anywhere;font-size:13px}.small-label{font-size:11px;color:#9db9d4}.tag{border-radius:20px;background:#294767;color:#c4ddf0;font-size:11px;padding:5px 8px;white-space:nowrap}.tag.high{background:#613943;color:#ffd5d5}.tag.medium{background:#675333;color:#ffedc3}.tag.low{background:#294b49;color:#bdeee0}.task-due{display:block;color:#b7cde4;margin-top:4px}.task.overdue{border-color:#80525d}.task.overdue .task-due{color:#ffb4bd}.study-form{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:16px}.study-form label{display:flex;flex-direction:column;gap:5px;font-size:12px;color:#abc0d7}.study-form input,.study-form select{width:100%}.study-form button{grid-column:1/-1}.study-log{display:flex;align-items:center;justify-content:space-between;gap:10px;border-bottom:1px solid #2a4160;padding:11px 0;font-size:13px}.study-log small{display:block;color:#8ca7c7}.bars{display:flex;align-items:end;gap:12px;min-height:160px;margin:24px 0 3px;border-bottom:1px solid #3c5d7e;padding:0 12px}.bar-wrap{flex:1;display:flex;flex-direction:column;align-items:center;gap:7px;min-width:0}.bar{width:min(42px,80%);min-height:3px;background:linear-gradient(#89d9ea,#5870ce);border-radius:5px 5px 0 0}.bar-wrap small{font-size:10px;color:#abc0d7}.focus{border-left:3px solid #f9d17b;padding-left:12px;margin-top:14px;color:#e6f1ff;font-size:14px}.import-label{display:inline-flex;cursor:pointer}.import-label input{display:none}.check-note{margin:8px 0;color:#8ba7c1;font-size:12px}.custom-day{color:#91ccfa}.note-box{border:1px solid #355171;padding:12px;border-radius:10px;background:#10213a;font-size:13px;color:#bed4eb}.footer-actions{display:flex;gap:8px;flex-wrap:wrap}.btn-small{padding:5px 8px;border:1px solid #41618a;background:#213d60;color:#e3efff;border-radius:6px;font-size:11px}.status-msg{min-height:18px;font-size:12px;color:#9fd5ca}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
@@ -24,7 +24,7 @@
 .next-action button:focus-visible{outline:3px solid #e0f2ff;outline-offset:3px}
 @media(max-width:700px){.next-action-main{flex-direction:column;align-items:stretch}.next-action button{width:100%}}
 
-/* AION v0.4: semana visual interativa, baseada apenas em registros locais */
+/* AION v0.5: semana visual interativa, baseada apenas em registros locais */
 .week-toolbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:15px 0 18px}
 .week-toolbar .week-range{font-weight:750;color:#f0f8ff;margin-right:auto}
 .week-toolbar button{min-width:42px}
@@ -59,10 +59,40 @@
 @media(max-width:1050px){.week-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
 @media(max-width:650px){.week-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.week-metrics{grid-template-columns:repeat(3,minmax(0,1fr))}.week-metric{padding:10px}.week-metric strong{font-size:21px}.week-card{gap:7px}}
 @media(max-width:360px){.week-grid{grid-template-columns:1fr}.week-form{grid-template-columns:1fr}}
+
+/* AION v0.5: histórico semanal e de estudos, somente com dados registrados */
+.analytics-range{display:flex;gap:7px;flex-wrap:wrap;margin-top:14px}
+.analytics-range button{padding:9px 12px;border-radius:10px;background:#1a3150;border:1px solid #41617f;color:#d6eafa;font-size:13px}
+.analytics-range button[aria-pressed="true"]{background:#315d8b;border-color:#74c7ed;color:#fff}
+.analytics-scroll{overflow-x:auto;overscroll-behavior-inline:contain;-webkit-overflow-scrolling:touch;padding:3px 2px 12px;margin-top:14px}
+.analytics-weeks{display:grid;grid-template-columns:repeat(8,minmax(68px,1fr));gap:9px;min-width:660px}
+.analytics-weeks.four{grid-template-columns:repeat(4,minmax(80px,1fr));min-width:360px}
+.analytics-week{background:#182d4c;border:1px solid #345774;border-radius:13px;color:#dcefff;padding:12px 7px 10px;display:flex;flex-direction:column;align-items:center;gap:6px;min-width:0}
+.analytics-week[aria-pressed="true"]{background:#244970;border-color:#ffcb63;outline:1px solid #ffcb63}
+.analytics-week-name{font-size:11px;color:#a6c6e6;white-space:nowrap}
+.analytics-week-plot{display:flex;align-items:flex-end;justify-content:center;gap:6px;width:100%;height:135px;border-bottom:1px solid #365b7d}
+.analytics-week-bar{border-radius:7px 7px 0 0;width:17px;display:block;min-height:2px;max-height:128px}
+.analytics-week-bar.plan{background:#466e9d}
+.analytics-week-bar.done{background:linear-gradient(180deg,#85ddf2,#49b3b7)}
+.analytics-week-count{font-size:11px;color:#b8d3e8}
+.analytics-legend{display:flex;gap:16px;flex-wrap:wrap;color:#bbd1e9;font-size:12px;margin-top:7px}
+.analytics-legend i{display:inline-block;width:9px;height:9px;border-radius:3px;margin-right:5px;vertical-align:middle}
+.analytics-detail{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin:14px 0}
+.analytics-stat{border:1px solid #355574;background:#192f4e;border-radius:11px;padding:11px;min-width:0}
+.analytics-stat strong{font-size:20px;display:block}
+.analytics-stat small{display:block;color:#9dbbd6;font-size:11px;margin-top:4px}
+.analytics-subject-list{display:flex;flex-direction:column;gap:13px;margin-top:17px}
+.analytics-subject-top{display:flex;gap:10px;justify-content:space-between;font-size:13px}
+.analytics-subject-name{color:#edf6ff;overflow-wrap:anywhere}
+.analytics-subject-data{color:#a8c6df;white-space:nowrap}
+.analytics-track{height:10px;border-radius:20px;background:#213b5b;overflow:hidden;margin-top:7px}
+.analytics-track span{display:block;height:100%;background:linear-gradient(90deg,#637cde,#72d7e9);border-radius:20px}
+.analytics-insight{color:#deeeff;font-size:14px;line-height:1.65;border-left:3px solid #e6c267;padding-left:14px;margin-top:12px}
+@media(max-width:680px){.analytics-detail{grid-template-columns:repeat(2,minmax(0,1fr))}.analytics-week-plot{height:120px}.analytics-stat strong{font-size:18px}.analytics-weeks.four{min-width:360px}}
 </style><link rel="manifest" href="./manifest.webmanifest"><link rel="icon" type="image/svg+xml" href="./aion-icon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="AION"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"></head><body>
 <div class="app"><aside class="side"><div class="brand">AI<span>ON</span></div><nav class="nav" aria-label="Áreas do painel">
-<button class="active" data-tab="geral">◈ Visão geral</button><button data-tab="calendario">▦ Calendário</button><button data-tab="semana">▥ Semana</button><button data-tab="estudos">▣ Estudos</button><button data-tab="projetos">◇ Projetos</button><button data-tab="trabalho">▤ Trabalho</button></nav><div class="side-note">AION Dashboard<br>Versão 0.4 • Independente<br>Dados locais • Backup JSON</div></aside>
-<main class="main"><header class="top"><div><div class="eyebrow" id="section-label">CENTRAL DE EVOLUÇÃO • V0.4</div><h1 id="heading">Seu panorama, em tempo real.</h1><p id="subtitle">Estudos, projetos e trabalho organizados em um só lugar.</p></div><div class="badge">● Versão local</div></header>
+<button class="active" data-tab="geral">◈ Visão geral</button><button data-tab="calendario">▦ Calendário</button><button data-tab="semana">▥ Semana</button><button data-tab="evolucao">▤ Evolução</button><button data-tab="estudos">▣ Estudos</button><button data-tab="projetos">◇ Projetos</button><button data-tab="trabalho">▤ Trabalho</button></nav><div class="side-note">AION Dashboard<br>Versão 0.5 • Independente<br>Dados locais • Backup JSON</div></aside>
+<main class="main"><header class="top"><div><div class="eyebrow" id="section-label">CENTRAL DE EVOLUÇÃO • V0.5</div><h1 id="heading">Seu panorama, em tempo real.</h1><p id="subtitle">Estudos, projetos e trabalho organizados em um só lugar.</p></div><div class="badge">● Versão local</div></header>
 <section id="overview" class="view active"><div class="summary" id="summary"></div><div class="grid"><section class="panel"><div class="between"><div><h2>Ritmo dos últimos 7 dias</h2><p class="hint">Conclusões por dia, com base nos seus registros</p></div><span class="hint">7 dias</span></div><svg id="chart" class="chart" viewBox="0 0 700 215" preserveAspectRatio="none" role="img" aria-label="Gráfico de tarefas concluídas nos últimos sete dias"></svg><div class="legend" id="chart-labels"></div></section><section class="panel"><h2>Radar dos próximos 7 dias</h2><p class="hint">Atividades agendadas para cada dia</p><div class="forecast" id="forecast"></div><p class="section-note">Assim como um painel meteorológico, este radar destaca o que vem pela frente — aqui, são compromissos, não previsão do tempo.</p></section></div><section class="panel next-action" aria-label="Próxima ação sugerida"><div class="eyebrow">✦ AION · PRÓXIMA AÇÃO</div><div class="next-action-main"><div class="next-action-body"><div class="next-action-title" id="next-action-title">Analisando suas prioridades...</div><p class="next-action-detail" id="next-action-detail">Sugestão calculada dos dados registrados neste navegador.</p></div><button type="button" id="next-action-button">Abrir área</button></div></section><div class="wide-grid"><section class="panel"><div class="between"><div><h2>Próximas prioridades</h2><p class="hint">Primeiro, tarefas atrasadas e de maior prioridade</p></div><button class="secondary" id="goto-week">Planejar semana</button><button class="secondary" id="goto-calendar">Ver calendário</button></div><div class="mini-list" id="upcoming"></div></section><section class="panel"><h2>Distribuição por área</h2><p class="hint">Avanço das tarefas cadastradas</p><div id="categories"></div></section></div></section>
 
 <section id="week-view" class="view" aria-label="Planejamento semanal">
@@ -97,14 +127,45 @@
     </section>
   </div>
 </section>
+
+<section id="analytics-view" class="view" aria-label="Análise de evolução">
+  <div class="summary" id="analytics-summary"></div>
+  <div class="panel">
+    <div class="between"><div><h2>Compromissos ao longo das semanas</h2><p class="hint">Comparação de atividades com prazo: previstas × concluídas, independentemente do dia da conclusão.</p></div></div>
+    <div class="analytics-range" role="group" aria-label="Intervalo de análise">
+      <button type="button" data-analytics-range="4" aria-pressed="false">4 semanas</button>
+      <button type="button" data-analytics-range="8" aria-pressed="true">8 semanas</button>
+    </div>
+    <div class="analytics-scroll"><div class="analytics-weeks" id="analytics-weeks"></div></div>
+    <div class="analytics-legend"><span><i style="background:#466e9d"></i>Previstas</span><span><i style="background:#55c5c8"></i>Concluídas das previstas</span></div>
+    <p class="section-note">Cada coluna representa uma semana de segunda a domingo. Toque em uma semana para consultar os números. A semana atual ainda está em andamento.</p>
+  </div>
+  <div class="wide-grid" style="margin-top:16px">
+    <section class="panel">
+      <h2 id="analytics-detail-title">Detalhes da semana</h2>
+      <div class="analytics-detail" id="analytics-detail"></div>
+      <p class="section-note">“Concluídas no período” considera a data em que você marcou a tarefa como pronta; registros antigos sem data de conclusão não entram nessa contagem.</p>
+    </section>
+    <section class="panel">
+      <h2>Desempenho por disciplina</h2>
+      <p class="hint">Questões, acertos e precisão considerando as sessões salvas.</p>
+      <div class="analytics-subject-list" id="analytics-subjects"></div>
+    </section>
+  </div>
+  <section class="panel" style="margin-top:16px">
+    <h2>Leitura dos resultados</h2>
+    <p class="hint">Recomendações automáticas simples, sem integração com inteligência artificial externa.</p>
+    <p class="analytics-insight" id="analytics-insight" aria-live="polite"></p>
+  </section>
+</section>
 <section id="calendar-view" class="view"><div class="wide-grid"><section class="panel"><div class="between"><div><h2>Calendário de atividades</h2><p class="hint">Selecione um dia para visualizar ou programar tarefas</p></div><div class="toolbar"><button class="secondary" id="cal-prev" aria-label="Mês anterior">‹</button><strong id="month-title" style="white-space:nowrap;font-size:13px"></strong><button class="secondary" id="cal-next" aria-label="Próximo mês">›</button><button class="secondary" id="cal-today">Hoje</button></div></div><div class="calendar-week" id="calendar"></div></section><section class="panel"><h2 id="selected-title">Atividades do dia</h2><p class="hint">Compromissos no dia selecionado</p><div id="day-list" class="mini-list"></div><form id="calendar-task-form" class="study-form"><label style="grid-column:1/-1">Nova atividade neste dia<input id="cal-task-name" required maxlength="110" placeholder="Ex.: Revisar matéria"></label><label>Área<select id="cal-task-type"><option value="estudos">Estudos</option><option value="projetos">Projetos</option><option value="trabalho">Trabalho</option></select></label><label>Prioridade<select id="cal-task-priority"><option value="medium">Média</option><option value="high">Alta</option><option value="low">Baixa</option></select></label><button type="submit" class="primary">+ Agendar para o dia selecionado</button></form></section></div></section>
 <section id="studies-view" class="view"><div class="summary" id="study-summary"></div><div class="wide-grid"><section class="panel"><h2>Registrar sessão de estudo</h2><p class="hint">Histórico por disciplina, questões e acertos</p><form id="study-form" class="study-form"><label>Disciplina<input id="study-subject" maxlength="65" placeholder="Ex.: Português" required></label><label>Data<input id="study-date" type="date" required></label><label>Questões respondidas<input id="study-total" type="number" min="1" max="10000" required></label><label>Acertos<input id="study-correct" type="number" min="0" max="10000" required></label><button class="primary" type="submit">+ Registrar sessão</button></form><div class="focus" id="study-insight">Cadastre a primeira sessão para acompanhar sua precisão.</div></section><section class="panel"><h2>Acertos por disciplina</h2><p class="hint">Taxa acumulada dos registros locais</p><div class="bars" id="study-bars"></div><div id="study-legend" class="legend"></div></section></div><div class="wide-grid"><section class="panel"><h2>Histórico de sessões</h2><div id="study-history" class="mini-list"></div></section><section class="panel"><h2>Revisões e tarefas acadêmicas</h2><p class="hint">Atividades desta área, incluindo os prazos cadastrados</p><div id="study-tasks" class="list"></div></section></div></section>
 <section id="tasks-view" class="view"><div class="summary" id="area-summary"></div><div class="wide-grid"><section class="panel"><h2 id="list-title">Atividades</h2><p class="hint">Filtre tarefas, conclua entregas e organize seus prazos.</p><div class="toolbar" style="margin-top:13px"><select id="filter-status" aria-label="Filtrar por situação"><option value="all">Todas</option><option value="pending">Pendentes</option><option value="done">Concluídas</option></select><select id="filter-priority" aria-label="Filtrar prioridade"><option value="all">Todas as prioridades</option><option value="high">Alta</option><option value="medium">Média</option><option value="low">Baixa</option></select></div><div id="task-list" class="list"></div></section><section class="panel"><h2>Nova atividade</h2><p class="hint">Defina o que fazer, quando e com qual prioridade</p><form id="task-form" class="study-form"><label style="grid-column:1/-1">Atividade<input id="task-name" maxlength="110" placeholder="Ex.: Revisar edital" required></label><label>Área<select id="task-type"><option value="estudos">Estudos</option><option value="projetos">Projetos</option><option value="trabalho">Trabalho</option></select></label><label>Prioridade<select id="task-priority"><option value="medium">Média</option><option value="high">Alta</option><option value="low">Baixa</option></select></label><label style="grid-column:1/-1">Prazo (opcional)<input id="task-due" type="date"></label><button class="primary" type="submit">+ Adicionar atividade</button></form><div class="note-box" style="margin-top:17px">💡 O dashboard não acessa automaticamente o ChatGPT, seu calendário ou seus documentos. Os registros são preenchidos aqui e ficam salvos neste navegador.</div></section></div></section>
-<div class="panel" style="margin-top:15px"><div class="between"><div><h2>Seus dados</h2><p class="hint">Backup da v0.2, com compatibilidade com as tarefas da v0.1</p></div><div class="footer-actions"><button class="secondary" id="export">↓ Exportar backup</button><label class="secondary import-label">↑ Importar backup<input id="import" type="file" accept=".json,application/json"></label><button class="secondary" id="clear">Limpar registros</button></div></div><p class="section-note">Armazenamento local deste navegador. Exporte um backup antes de limpar os dados, trocar de aparelho ou apagar os dados do site. A importação substitui os registros locais após confirmação.</p><p class="status-msg" id="status" role="status"></p></div><div class="foot">AION v0.4 · Projeto independente · Sem integração com Microsoft, Sincronia ou GitHub · Todos os dados locais</div></main></div><div class="toast" id="toast" role="status"></div><script>
+<div class="panel" style="margin-top:15px"><div class="between"><div><h2>Seus dados</h2><p class="hint">Backup da v0.2, com compatibilidade com as tarefas da v0.1</p></div><div class="footer-actions"><button class="secondary" id="export">↓ Exportar backup</button><label class="secondary import-label">↑ Importar backup<input id="import" type="file" accept=".json,application/json"></label><button class="secondary" id="clear">Limpar registros</button></div></div><p class="section-note">Armazenamento local deste navegador. Exporte um backup antes de limpar os dados, trocar de aparelho ou apagar os dados do site. A importação substitui os registros locais após confirmação.</p><p class="status-msg" id="status" role="status"></p></div><div class="foot">AION v0.5 · Projeto independente · Sem integração com Microsoft, Sincronia ou GitHub · Todos os dados locais</div></main></div><div class="toast" id="toast" role="status"></div><script>
 (()=>{'use strict';
 const KEY='aion-dashboard-local-v2',OLD='aion-dashboard-local-v1';
 const names={estudos:'Estudos',projetos:'Projetos',trabalho:'Trabalho'},prNames={high:'Alta',medium:'Média',low:'Baixa'};
-const tabs={geral:['Seu panorama, em tempo real.','Estudos, projetos e trabalho organizados em um só lugar.'],calendario:['Seu tempo, organizado.','Uma visão clara dos compromissos e dos próximos passos.'],semana:['Sua semana, em perspectiva.','Distribua suas atividades e acompanhe o avanço dia após dia.'],estudos:['Estudos em evolução.','Registre sessões, monitore acertos e acompanhe revisões.'],projetos:['Projetos em movimento.','Acompanhe entregas, prioridades e prazos.'],trabalho:['Trabalho sob controle.','Organize suas atividades profissionais sem perder o foco.']};
+const tabs={geral:['Seu panorama, em tempo real.','Estudos, projetos e trabalho organizados em um só lugar.'],calendario:['Seu tempo, organizado.','Uma visão clara dos compromissos e dos próximos passos.'],semana:['Sua semana, em perspectiva.','Distribua suas atividades e acompanhe o avanço dia após dia.'],evolucao:['Seu histórico, em perspectiva.','Compare semanas, disciplinas e tendências com base nos seus registros.'],estudos:['Estudos em evolução.','Registre sessões, monitore acertos e acompanhe revisões.'],projetos:['Projetos em movimento.','Acompanhe entregas, prioridades e prazos.'],trabalho:['Trabalho sob controle.','Organize suas atividades profissionais sem perder o foco.']};
 const $=id=>document.getElementById(id),esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const today=()=>dateKey(new Date()),dateKey=d=>[d.getFullYear(),String(d.getMonth()+1).padStart(2,'0'),String(d.getDate()).padStart(2,'0')].join('-');
 const offset=n=>{const d=new Date();d.setHours(12,0,0,0);d.setDate(d.getDate()+n);return d};
@@ -115,14 +176,14 @@ function sanitizeTask(t){if(!t||typeof t.name!=='string'||!names[t.type])return 
 function sanitizeStudy(s){if(!s||typeof s.subject!=='string'||!validDay(s.date))return null;let total=Number(s.total),correct=Number(s.correct);if(!Number.isInteger(total)||total<1||total>10000||!Number.isInteger(correct)||correct<0||correct>total)return null;return {id:typeof s.id==='string'?s.id:uid(),subject:s.subject.trim().slice(0,65),date:s.date,total,correct}}
 let state={tasks:[],studies:[]},active='geral',selected=today(),month=new Date().getMonth(),year=new Date().getFullYear();
 function startOfWeek(key){const d=new Date(key+'T12:00:00');d.setDate(d.getDate()-(d.getDay()+6)%7);return dateKey(d)}
-let weekStart=startOfWeek(today()),weekSelected=today();
+let weekStart=startOfWeek(today()),weekSelected=today(),analyticsRange=8,analyticsSelectedWeek=startOfWeek(today());
 try{const raw=JSON.parse(localStorage.getItem(KEY)||'null');if(raw&&Array.isArray(raw.tasks)&&Array.isArray(raw.studies)){state.tasks=raw.tasks.map(sanitizeTask).filter(Boolean);state.studies=raw.studies.map(sanitizeStudy).filter(Boolean)}else{const old=JSON.parse(localStorage.getItem(OLD)||'[]');if(Array.isArray(old))state.tasks=old.map(sanitizeTask).filter(Boolean)}}catch(e){}
 function save(){try{localStorage.setItem(KEY,JSON.stringify(state))}catch(e){notify('Não foi possível salvar. Faça backup dos registros.')}}
 function notify(msg){$('toast').textContent=msg;$('status').textContent=msg;$('toast').style.display='block';clearTimeout(notify.timer);notify.timer=setTimeout(()=>$('toast').style.display='none',2900)}
 function relevant(){return state.tasks.filter(t=>active==='geral'||active==='calendario'||t.type===active)}
 function sorted(tasks){return tasks.slice().sort((a,b)=>Number(a.done)-Number(b.done)||(a.due||'9999').localeCompare(b.due||'9999')||({high:0,medium:1,low:2}[a.priority]-{high:0,medium:1,low:2}[b.priority])||(b.createdAt||'').localeCompare(a.createdAt||''))}
 function tileHTML(stats){return stats.map(s=>`<div class="tile"><div class="name">${esc(s[0])}</div><strong>${esc(s[1])}</strong><small>${esc(s[2])}</small></div>`).join('')}
-function renderHeader(){document.querySelectorAll('[data-tab]').forEach(b=>b.classList.toggle('active',b.dataset.tab===active));$('heading').textContent=tabs[active][0];$('subtitle').textContent=tabs[active][1];$('section-label').textContent='CENTRAL DE EVOLUÇÃO • '+(active==='geral'?'VISÃO GERAL':active.toUpperCase());$('overview').classList.toggle('active',active==='geral');$('calendar-view').classList.toggle('active',active==='calendario');$('week-view').classList.toggle('active',active==='semana');$('studies-view').classList.toggle('active',active==='estudos');$('tasks-view').classList.toggle('active',['projetos','trabalho'].includes(active));$('task-type').value=names[active]?active:'estudos'}
+function renderHeader(){document.querySelectorAll('[data-tab]').forEach(b=>b.classList.toggle('active',b.dataset.tab===active));$('heading').textContent=tabs[active][0];$('subtitle').textContent=tabs[active][1];$('section-label').textContent='CENTRAL DE EVOLUÇÃO • '+(active==='geral'?'VISÃO GERAL':active.toUpperCase());$('overview').classList.toggle('active',active==='geral');$('calendar-view').classList.toggle('active',active==='calendario');$('week-view').classList.toggle('active',active==='semana');$('analytics-view').classList.toggle('active',active==='evolucao');$('studies-view').classList.toggle('active',active==='estudos');$('tasks-view').classList.toggle('active',['projetos','trabalho'].includes(active));$('task-type').value=names[active]?active:'estudos'}
 function renderOverview(){const tasks=state.tasks,done=tasks.filter(t=>t.done).length,pending=tasks.length-done,upcoming=tasks.filter(t=>!t.done&&t.due&&t.due>=today()).length;
 $('summary').innerHTML=tileHTML([['Atividades',tasks.length,'Em todas as áreas'],['Concluídas',done,'Histórico registrado'],['Pendentes',pending,'Ainda em andamento'],['Agendadas',upcoming,'A partir de hoje']]);
 $('categories').innerHTML=Object.entries(names).map(([k,n])=>{let a=tasks.filter(t=>t.type===k),d=a.filter(t=>t.done).length,p=a.length?Math.round(d/a.length*100):0;return `<div class="category"><span>${n}</span><span>${d}/${a.length} · ${p}%</span></div><div class="progress"><div style="width:${p}%"></div></div>`}).join('');
@@ -219,6 +280,86 @@ function jumpWeek(delta){
  weekStart=dateKey(d);weekSelected=weekStart;renderWeek();
 }
 
+
+function analyticsWeeks(count){
+ const base=new Date(startOfWeek(today())+'T12:00:00');
+ return Array.from({length:count},(_,i)=>{
+  const d=new Date(base);d.setDate(d.getDate()-(count-1-i)*7);
+  const start=dateKey(d),endDate=new Date(d);endDate.setDate(endDate.getDate()+6);
+  const end=dateKey(endDate);
+  const scheduled=state.tasks.filter(t=>t.due&&t.due>=start&&t.due<=end);
+  const studies=state.studies.filter(v=>v.date>=start&&v.date<=end);
+  return {
+   start,end,scheduled:scheduled.length,
+   scheduledDone:scheduled.filter(t=>t.done).length,
+   completed:state.tasks.filter(t=>t.done&&t.completedDay&&t.completedDay>=start&&t.completedDay<=end).length,
+   questions:studies.reduce((n,v)=>n+v.total,0),
+   correct:studies.reduce((n,v)=>n+v.correct,0)
+  };
+ });
+}
+function renderAnalytics(){
+ const weeks=analyticsWeeks(analyticsRange);
+ if(!weeks.some(w=>w.start===analyticsSelectedWeek))analyticsSelectedWeek=weeks[weeks.length-1].start;
+ const current=weeks[weeks.length-1],previous=weeks[weeks.length-2];
+ const four=analyticsWeeks(4);
+ const fourQuestions=four.reduce((n,v)=>n+v.questions,0),fourCorrect=four.reduce((n,v)=>n+v.correct,0);
+ $('analytics-summary').innerHTML=tileHTML([
+  ['Concluídas nesta semana',current.completed,'Por data de conclusão'],
+  ['Semana anterior',previous.completed,'Concluídas naquela semana'],
+  ['Questões (4 semanas)',fourQuestions,'Sessões registradas'],
+  ['Precisão (4 semanas)',fourQuestions?Math.round(fourCorrect/fourQuestions*100)+'%':'—',fourQuestions?fourCorrect+' acertos':'Sem questões']
+ ]);
+ document.querySelectorAll('[data-analytics-range]').forEach(b=>b.setAttribute('aria-pressed',String(Number(b.dataset.analyticsRange)===analyticsRange)));
+ const max=Math.max(1,...weeks.map(w=>w.scheduled));
+ $('analytics-weeks').className='analytics-weeks'+(analyticsRange===4?' four':'');
+ $('analytics-weeks').innerHTML=weeks.map(w=>{
+  const date=new Date(w.start+'T12:00:00'),name=date.toLocaleDateString('pt-BR',{day:'2-digit',month:'short'});
+  const plannedHeight=w.scheduled?Math.max(5,Math.round(w.scheduled/max*120)):2;
+  const doneHeight=w.scheduledDone?Math.max(5,Math.round(w.scheduledDone/max*120)):2;
+  const sel=w.start===analyticsSelectedWeek;
+  return '<button type="button" class="analytics-week" data-analytics-week="'+w.start+'" aria-pressed="'+sel+'" aria-label="Semana a partir de '+esc(name)+': '+w.scheduled+' tarefas previstas e '+w.scheduledDone+' concluídas">'+
+    '<span class="analytics-week-name">'+esc(name)+'</span>'+
+    '<span class="analytics-week-plot" aria-hidden="true"><i class="analytics-week-bar plan" style="height:'+plannedHeight+'px"></i><i class="analytics-week-bar done" style="height:'+doneHeight+'px"></i></span>'+
+    '<span class="analytics-week-count">'+w.scheduled+' / '+w.scheduledDone+'</span></button>';
+ }).join('');
+ const w=weeks.find(x=>x.start===analyticsSelectedWeek);
+ $('analytics-detail-title').textContent='Semana de '+pretty(w.start)+' a '+pretty(w.end);
+ $('analytics-detail').innerHTML=[
+  ['Previstas',w.scheduled],['Concluídas das previstas',w.scheduledDone],
+  ['Concluídas no período',w.completed],['Questões / precisão',w.questions?(w.questions+' · '+Math.round(w.correct/w.questions*100)+'%'):'Sem dados']
+ ].map(([label,value])=>'<div class="analytics-stat"><strong>'+esc(value)+'</strong><small>'+esc(label)+'</small></div>').join('');
+ const subjects=new Map();
+ state.studies.forEach(v=>{
+  const key=v.subject.trim().toLocaleLowerCase('pt-BR');
+  let row=subjects.get(key);
+  if(!row){row={subject:v.subject.trim(),questions:0,correct:0};subjects.set(key,row)}
+  row.questions+=v.total;row.correct+=v.correct;
+ });
+ const rows=[...subjects.values()].sort((a,b)=>b.questions-a.questions||a.subject.localeCompare(b.subject,'pt-BR'));
+ $('analytics-subjects').innerHTML=rows.length?rows.map(item=>{
+  const pct=Math.round(item.correct/item.questions*100);
+  return '<div><div class="analytics-subject-top"><strong class="analytics-subject-name">'+esc(item.subject)+'</strong><span class="analytics-subject-data">'+item.correct+'/'+item.questions+' · '+pct+'%</span></div>'+
+   '<div class="analytics-track" role="img" aria-label="'+esc(item.subject)+': '+pct+'% de acertos"><span style="width:'+pct+'%"></span></div></div>';
+ }).join(''):'<div class="empty">Registre sessões de estudo para visualizar o desempenho por disciplina.</div>';
+ const atRisk=rows.filter(v=>v.questions>=10&&v.correct/v.questions<.70).sort((a,b)=>a.correct/a.questions-b.correct/b.questions)[0];
+ const before=analyticsWeeks(8).slice(0,4),recent=analyticsWeeks(4);
+ const q1=before.reduce((n,v)=>n+v.questions,0),c1=before.reduce((n,v)=>n+v.correct,0);
+ const q2=recent.reduce((n,v)=>n+v.questions,0),c2=recent.reduce((n,v)=>n+v.correct,0);
+ let insight;
+ if(atRisk)insight='A matéria '+atRisk.subject+' merece revisão: '+Math.round(atRisk.correct/atRisk.questions*100)+'% de acertos em '+atRisk.questions+' questões registradas. Revise os erros antes da próxima sessão.';
+ else if(q1>=10&&q2>=10){
+  const change=Math.round(c2/q2*100)-Math.round(c1/q1*100);
+  insight=change===0?'A precisão dos dois blocos recentes de quatro semanas ficou estável. Continue registrando sessões para observar a evolução.':
+   'Nas quatro semanas mais recentes, sua precisão foi '+(change>0?change+' pontos percentuais maior':Math.abs(change)+' pontos percentuais menor')+' do que nas quatro anteriores. Essa comparação considera apenas os registros salvos.';
+ }else if(state.studies.length){
+  insight='O histórico de estudos começou a ganhar forma. Para comparar tendências com segurança, registre pelo menos dez questões em cada bloco de quatro semanas.';
+ }else if(state.tasks.length){
+  insight='Você já possui atividades cadastradas. Registre também suas sessões de estudo para acompanhar a evolução por disciplina.';
+ }else insight='O painel está pronto para construir seu histórico. Cadastre atividades e sessões para gerar comparativos baseados em dados reais, sem números fictícios.';
+ $('analytics-insight').textContent=insight;
+}
+
 function renderCalendar(){const first=new Date(year,month,1),dayStart=(first.getDay()+6)%7,days=new Date(year,month+1,0).getDate(),cells=Math.ceil((dayStart+days)/7)*7;$('month-title').textContent=first.toLocaleDateString('pt-BR',{month:'long',year:'numeric'});let html=['Seg','Ter','Qua','Qui','Sex','Sáb','Dom'].map(d=>`<div class="cal-head">${d}</div>`).join('');for(let i=0;i<cells;i++){let d=new Date(year,month,i-dayStart+1),key=dateKey(d),valid=d.getMonth()===month,items=state.tasks.filter(t=>t.due===key);html+=`<button type="button" class="cal-day ${valid?'':'muted'} ${key===selected?'selected':''} ${key===today()?'today':''}" data-day="${key}" aria-label="${pretty(key)}, ${items.length} atividades"><span class="cal-number">${d.getDate()}</span>${items.slice(0,2).map(t=>`<span class="cal-pill ${t.type}">${t.done?'✓ ':''}${esc(t.name)}</span>`).join('')}${items.length>2?`<span class="cal-count">+${items.length-2} outras</span>`:''}</button>`} $('calendar').innerHTML=html;const tasks=sorted(state.tasks.filter(t=>t.due===selected));$('selected-title').textContent='Atividades de '+pretty(selected);$('day-list').innerHTML=tasks.length?tasks.map(t=>`<div class="mini-item"><span class="title">${esc(t.name)}<br><span class="small-label">${names[t.type]} · ${prNames[t.priority]} · ${t.done?'Concluída':'Pendente'}</span></span>${t.done?'✓':`<button class="btn-small" data-complete="${esc(t.id)}">Concluir</button>`}</div>`).join(''):'<div class="empty">Nenhuma atividade nesse dia.</div>';}
 function renderTask(t){return `<div class="task ${t.done?'done':''} ${!t.done&&t.due&&t.due<today()?'overdue':''}"><input type="checkbox" data-id="${esc(t.id)}" ${t.done?'checked':''} aria-label="Concluir ${esc(t.name)}"><span class="task-main"><span class="task-title">${esc(t.name)}</span><small>${names[t.type]} · <span class="tag ${t.priority}">${prNames[t.priority]}</span></small><small class="task-due">${t.due?'Prazo: '+pretty(t.due):'Sem prazo'}</small></span><button type="button" class="del" data-remove="${esc(t.id)}" aria-label="Excluir ${esc(t.name)}" title="Excluir atividade">×</button></div>`}
 function renderTasks(){const items=state.tasks.filter(t=>t.type===active),done=items.filter(t=>t.done).length,overdue=items.filter(t=>!t.done&&t.due&&t.due<today()).length,pct=items.length?Math.round(done*100/items.length):0;
@@ -229,11 +370,19 @@ let grouped={};list.forEach(s=>{let k=s.subject.trim().toLocaleLowerCase('pt-BR'
 $('study-legend').textContent=rows.length?'Precisão acumulada por disciplina':'';let weakest=rows.length?rows.slice().sort((a,b)=>a.correct/a.total-b.correct/b.total)[0]:null;$('study-insight').textContent=weakest?`Ponto de atenção: ${weakest.name} — ${Math.round(100*weakest.correct/weakest.total)}% de acertos em ${weakest.total} questões registradas.`:'Cadastre sua primeira sessão para acompanhar a precisão.';
 $('study-history').innerHTML=list.length?list.slice().sort((a,b)=>b.date.localeCompare(a.date)).slice(0,15).map(s=>`<div class="study-log"><div><strong>${esc(s.subject)}</strong><small>${pretty(s.date)} · ${s.correct}/${s.total} acertos (${Math.round(s.correct/s.total*100)}%)</small></div><button class="btn-small" data-study-remove="${esc(s.id)}">Excluir</button></div>`).join(''):'<div class="empty">Nenhuma sessão registrada ainda.</div>';
 let a=sorted(state.tasks.filter(t=>t.type==='estudos')).slice(0,10);$('study-tasks').innerHTML=a.length?a.map(renderTask).join(''):'<div class="empty">Cadastre suas revisões no calendário ou nas tarefas.</div>'}
-function render(){renderHeader();renderOverview();renderNextAction();renderCalendar();renderWeek();renderStudies();if(active==='projetos'||active==='trabalho')renderTasks()}
+function render(){renderHeader();renderOverview();renderNextAction();renderCalendar();renderWeek();renderStudies();renderAnalytics();if(active==='projetos'||active==='trabalho')renderTasks()}
 function setTab(tab){if(!tabs[tab])return;active=tab;render()}
 document.querySelectorAll('[data-tab]').forEach(b=>b.addEventListener('click',()=>setTab(b.dataset.tab)));
 $('goto-calendar').addEventListener('click',()=>setTab('calendario'));
 $('goto-week').addEventListener('click',()=>setTab('semana'));
+document.querySelectorAll('[data-analytics-range]').forEach(b=>b.addEventListener('click',()=>{
+ analyticsRange=Number(b.dataset.analyticsRange);renderAnalytics();
+}));
+$('analytics-weeks').addEventListener('click',e=>{
+ const target=e.target.closest('[data-analytics-week]');
+ if(!target)return;
+ analyticsSelectedWeek=target.dataset.analyticsWeek;renderAnalytics();
+});
 $('week-prev').addEventListener('click',()=>jumpWeek(-1));
 $('week-next').addEventListener('click',()=>jumpWeek(1));
 $('week-current').addEventListener('click',()=>{weekStart=startOfWeek(today());weekSelected=today();renderWeek()});

@@ -52,7 +52,7 @@ function ok(message){++passed;console.log('PASS '+BROWSER+' '+message);}
       assert.match(await page.locator('#heading').innerText(),/Seu panorama/);
       ok(profile.name+' startup');
       for (const [tab,title] of [
-        ['calendario','Seu tempo'],['semana','Sua semana'],['estudos','Estudos em evolução'],
+        ['calendario','Seu tempo'],['semana','Sua semana'],['evolucao','Seu histórico'],['estudos','Estudos em evolução'],
         ['projetos','Projetos em movimento'],['trabalho','Trabalho'],
         ['geral','Seu panorama']
       ]){
@@ -172,6 +172,57 @@ function ok(message){++passed;console.log('PASS '+BROWSER+' '+message);}
       }
       ok(profile.name+' weekly responsive layout');
 
+
+
+      await page.locator('[data-tab="evolucao"]').click();
+      assert.match(await page.locator('#heading').innerText(),/Seu histórico/);
+      assert.equal(await page.locator('[data-analytics-week]').count(),8);
+      assert.match(await page.locator('#analytics-summary').innerText(),/Questões \(4 semanas\)/);
+      assert.match(await page.locator('#analytics-subjects').innerText(),/Português/);
+      assert.match(await page.locator('#analytics-detail').innerText(),/Previstas/);
+      const firstCurrentWeek=await page.locator('[data-analytics-week]').last().getAttribute('data-analytics-week');
+      await page.locator('[data-analytics-range="4"]').click();
+      assert.equal(await page.locator('[data-analytics-week]').count(),4);
+      await page.locator('[data-analytics-range="8"]').click();
+      assert.equal(await page.locator('[data-analytics-week]').count(),8);
+      await page.locator('[data-analytics-week]').last().click();
+      assert.equal(await page.locator('[data-analytics-week][aria-pressed="true"]').getAttribute('data-analytics-week'),firstCurrentWeek);
+      ok(profile.name+' historical analytics range, weekly bars and selection');
+
+      // Verify real data aggregation across two different calendar weeks.
+      const lastWeekStart=await page.evaluate(()=>{
+        const d=new Date(); d.setHours(12,0,0,0);
+        d.setDate(d.getDate()-(d.getDay()+6)%7-7);
+        return [d.getFullYear(),String(d.getMonth()+1).padStart(2,'0'),String(d.getDate()).padStart(2,'0')].join('-');
+      });
+      await page.locator('[data-tab="estudos"]').click();
+      await page.locator('#study-subject').fill('Matemática');
+      await page.locator('#study-date').fill(lastWeekStart);
+      await page.locator('#study-total').fill('10');
+      await page.locator('#study-correct').fill('8');
+      await page.locator('#study-form button[type=submit]').click();
+      await page.locator('#study-subject').fill('Português');
+      await page.locator('#study-date').fill(today);
+      await page.locator('#study-total').fill('10');
+      await page.locator('#study-correct').fill('3');
+      await page.locator('#study-form button[type=submit]').click();
+      await page.locator('[data-tab="evolucao"]').click();
+      assert.match(await page.locator('#analytics-subjects').innerText(),/Matemática/);
+      assert.match(await page.locator('#analytics-subjects').innerText(),/8\/10 · 80%/);
+      assert.match(await page.locator('#analytics-subjects').innerText(),/10\/19 · 53%/);
+      assert.match(await page.locator('#analytics-insight').innerText(),/Português merece revisão/);
+      assert.match(await page.locator('#analytics-summary').innerText(),/29/);
+      await page.locator('[data-analytics-week="'+lastWeekStart+'"]').click();
+      assert.match(await page.locator('#analytics-detail').innerText(),/10 · 80%/);
+      ok(profile.name+' subject precision, insight thresholds and historical weekly study totals');
+
+      await page.reload();
+      await page.locator('[data-tab="evolucao"]').click();
+      assert.match(await page.locator('#analytics-subjects').innerText(),/10\/19 · 53%/);
+      const analyticsLayout=await page.evaluate(()=>({width:innerWidth,scrollWidth:document.documentElement.scrollWidth}));
+      assert.ok(analyticsLayout.scrollWidth<=analyticsLayout.width+2,'Historical analytics overflow '+JSON.stringify(analyticsLayout));
+      assert.deepEqual(errors,[],'No JS errors on analytics');
+      ok(profile.name+' analytics persistence and mobile viewport');
 
       await page.locator('[data-tab="estudos"]').click();
       const layout=await page.evaluate(()=>({scrollWidth:document.documentElement.scrollWidth,width:window.innerWidth}));
