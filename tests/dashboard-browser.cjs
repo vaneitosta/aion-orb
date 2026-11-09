@@ -117,6 +117,79 @@ function ok(message){++passed;console.log('PASS '+BROWSER+' '+message);}
       assert.equal(await page.locator('#task-list img').count(),0,'task HTML must be escaped');
       ok(profile.name+' projects and HTML injection protection');
 
+      // Security: test encrypted export, wrong password, isolated device transfer, merge and replace.
+      await page.locator('#secure-passphrase').fill('short');
+      await page.locator('#secure-export').click();
+      assert.match(await page.locator('#secure-status').innerText(),/12 caracteres/);
+      const protectedPassword='AION-Backup-Forte-2026!';
+      await page.locator('#secure-passphrase').fill(protectedPassword);
+      const protectedDownloadPromise=page.waitForEvent('download');
+      await page.locator('#secure-export').click();
+      const protectedDownload=await protectedDownloadPromise;
+      assert.match(protectedDownload.suggestedFilename(),/\.aion\.json$/);
+      const rawProtected=await readFile(await protectedDownload.path(),'utf8');
+      assert.ok(!rawProtected.includes('Finalizar AION'),'File must not contain plaintext task titles');
+      assert.ok(!rawProtected.includes('Português'),'File must not contain plaintext study titles');
+      const encrypted=JSON.parse(rawProtected);
+      assert.equal(encrypted.format,'aion-dashboard-encrypted');
+      assert.equal(encrypted.algorithm,'AES-256-GCM');
+      assert.equal(encrypted.iterations,310000);
+      assert.ok(encrypted.ciphertext.length>32);
+      ok(profile.name+' encrypted backup export and no plaintext leakage');
+
+      await page.locator('#secure-passphrase').fill('wrong-password-2026');
+      await page.locator('#secure-import').setInputFiles({
+        name:'encrypted.aion.json',mimeType:'application/json',buffer:Buffer.from(rawProtected)
+      });
+      await page.waitForFunction(()=>document.querySelector('#secure-status')?.textContent?.includes('Senha incorreta'));
+      state=await page.evaluate(()=>JSON.parse(localStorage.getItem('aion-dashboard-local-v2')));
+      assert.equal(state.tasks.length,3,'Wrong password must not mutate original data');
+      await page.locator('#secure-passphrase').fill(protectedPassword);
+      await page.locator('#secure-import').setInputFiles({
+        name:'encrypted.aion.json',mimeType:'application/json',buffer:Buffer.from(rawProtected)
+      });
+      await page.waitForFunction(()=>document.querySelector('#secure-status')?.textContent?.includes('Mesclagem concluída: 0 tarefas'));
+      state=await page.evaluate(()=>JSON.parse(localStorage.getItem('aion-dashboard-local-v2')));
+      assert.equal(state.tasks.length,3,'Repeated import must deduplicate by id');
+      ok(profile.name+' wrong password rejection and non-destructive repeated import');
+
+      const receiver=await browser.newContext({...profile.options,acceptDownloads:true});
+      try{
+        const remote=await receiver.newPage();
+        await remote.goto(base+'dashboard/',{waitUntil:'load'});
+        assert.equal(await remote.locator('#summary .tile').count(),4);
+        await remote.locator('#secure-passphrase').fill(protectedPassword);
+        await remote.locator('#secure-import').setInputFiles({
+          name:'encrypted.aion.json',mimeType:'application/json',buffer:Buffer.from(rawProtected)
+        });
+        await remote.waitForFunction(()=>JSON.parse(localStorage.getItem('aion-dashboard-local-v2')||'{}')?.tasks?.length===3);
+        let remoteState=await remote.evaluate(()=>JSON.parse(localStorage.getItem('aion-dashboard-local-v2')));
+        assert.equal(remoteState.studies.length,1);
+        assert.equal(remoteState.tasks.length,3);
+        await remote.reload();
+        await remote.locator('[data-tab="projetos"]').click();
+        await remote.locator('#task-name').fill('Tarefa exclusiva do outro aparelho');
+        await remote.locator('#task-form button[type=submit]').click();
+        await remote.locator('#secure-passphrase').fill(protectedPassword);
+        await remote.locator('#secure-import').setInputFiles({
+          name:'encrypted.aion.json',mimeType:'application/json',buffer:Buffer.from(rawProtected)
+        });
+        await remote.waitForFunction(()=>document.querySelector('#secure-status')?.textContent?.includes('Mesclagem concluída: 0 tarefas'));
+        remoteState=await remote.evaluate(()=>JSON.parse(localStorage.getItem('aion-dashboard-local-v2')));
+        assert.equal(remoteState.tasks.length,4,'Merge must preserve local data from receiving device');
+        await remote.locator('#secure-import-mode').selectOption('replace');
+        remote.once('dialog',d=>d.accept());
+        await remote.locator('#secure-import').setInputFiles({
+          name:'encrypted.aion.json',mimeType:'application/json',buffer:Buffer.from(rawProtected)
+        });
+        await remote.waitForFunction(()=>JSON.parse(localStorage.getItem('aion-dashboard-local-v2'))?.tasks?.length===3);
+        remoteState=await remote.evaluate(()=>JSON.parse(localStorage.getItem('aion-dashboard-local-v2')));
+        assert.equal(remoteState.studies.length,1);
+        assert.ok(!remoteState.tasks.some(t=>t.name==='Tarefa exclusiva do outro aparelho'));
+        ok(profile.name+' encrypted transfer between isolated devices, merge and confirmed replacement');
+      }finally{await receiver.close();}
+
+
       const downloadPromise=page.waitForEvent('download');
       await page.locator('#export').click();
       const download=await downloadPromise;
