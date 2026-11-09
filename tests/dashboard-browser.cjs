@@ -77,6 +77,11 @@ function ok(message){++passed;console.log('PASS '+BROWSER+' '+message);}
       assert.equal(state.tasks[0].due,today);
       assert.equal(state.tasks[0].priority,'high');
       ok(profile.name+' calendar scheduling');
+      await page.locator('[data-tab="geral"]').click();
+      assert.match(await page.locator('#next-action-title').innerText(),/Prazo de hoje: Revisar Direito/);
+      await page.locator('#next-action-button').click();
+      assert.match(await page.locator('#heading').innerText(),/Seu tempo, organizado/);
+      ok(profile.name+' next-action guidance and calendar navigation');
 
       await page.reload();
       await page.locator('[data-tab="geral"]').click();
