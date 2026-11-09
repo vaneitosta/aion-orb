@@ -123,6 +123,7 @@ function ok(message){++passed;console.log('PASS '+BROWSER+' '+message);}
       await page.locator('#clear').click();
       state=await page.evaluate(()=>JSON.parse(localStorage.getItem('aion-dashboard-local-v2')));
       assert.equal(state.tasks.length,0);
+      page.once('dialog',d=>d.accept());
       await page.locator('#import').setInputFiles({
         name:'aion-backup.json',mimeType:'application/json',
         buffer:Buffer.from(JSON.stringify(payload))
