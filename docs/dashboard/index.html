@@ -30,7 +30,8 @@
 .week-toolbar button{min-width:42px}
 .week-metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:12px 0 20px}
 .week-metric{background:#1c3453;border:1px solid #315171;border-radius:12px;padding:13px}
-.week-metric span{display:block;font-size:12px;color:#a4c1dc}
+.week-metric .name{display:block;font-size:12px;color:#a4c1dc}
+.week-metric small{display:block;font-size:11px;color:#91b3d2}
 .week-metric strong{display:block;font-size:24px;margin-top:7px}
 .week-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:9px}
 .week-card{border:1px solid #355575;background:#1a304f;border-radius:13px;padding:12px 9px;min-width:0;display:flex;flex-direction:column;gap:10px}
@@ -50,7 +51,8 @@
 .week-task-row .small-label{display:block;font-size:11px;color:#a3c1dd;margin-top:5px}
 .week-task-row button{font-size:12px;padding:7px 10px;border:1px solid #426788;border-radius:8px;background:#284769;color:#e9f6ff}
 .week-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:12px}
-.week-form label{min-width:0}
+.week-form label{min-width:0;display:flex;flex-direction:column;gap:6px;font-size:12px;color:#abc0d7}
+.week-form input,.week-form select{background:#0e1e36;color:#eef7ff;border:1px solid #355273;border-radius:9px;padding:10px}
 .week-form label:first-child{grid-column:1/-1}
 .week-form label input,.week-form label select{width:100%;min-width:0;font-size:16px}
 .week-form button{grid-column:1/-1}
