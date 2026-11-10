@@ -23,3 +23,14 @@ Validação anterior à publicação: 11 cenários de restauração; Chrome head
 Limites: sem validação em aparelhos físicos, instalação PWA pelo sistema, HTTPS, leitores de tela ou queda de energia. Reversão de localStorage é tentativa; backup preventivo em disco é a salvaguarda se o armazenamento continuar falhando. Não contém dados pessoais nem perfis de navegador.
 
 Rollback: conservar os ZIPs AION-Antes-AutoUpdate e o backup dos scripts Windows. Extrair primeiro em diretório separado, conferir conteúdo e restaurar somente código e estado correspondentes. A atualização automática recusa downgrade; não alterar o canal silenciosamente para mascarar isso. Dados pessoais não devem ser substituídos no rollback de código.
+
+
+## 0.5.5 — Biblioteca privada de estudos
+
+Biblioteca local com pesquisa sem acentos, filtro por área, contagem de arquivos disponíveis e abertura das cópias PDF. Interface responsiva com controles de pelo menos 44px, foco visível, limpeza de filtros e mensagens de falha que preservam a lista anterior.
+
+O catálogo e os materiais ficam em _materiais_estudo, fora da pasta de código. Nenhum material pessoal integra este pacote. A biblioteca não altera atividades, notas ou sessões. A configuração local ativo.json aponta para uma pasta de catálogo; sem catálogo, a biblioteca fica vazia.
+
+O servidor só atende arquivos PDF registrados no catálogo e dentro da pasta copias. Respostas da biblioteca não expõem caminhos de disco. Arquivos e API não entram no cache offline. A atualização não reinicia o computador nem o servidor já aberto: a nova API passa a funcionar no próximo início do servidor. O painel orienta quando encontra o servidor anterior.
+
+Validação: Chrome em perfil isolado; pesquisa/filtros, contagens, arquivo ausente, erro 500, orientação 404, AbortError simulado e recuperação; bloqueio de origem externa e de caminhos fora da biblioteca; backup/restauração e falhas; larguras 320 a 1440px. Sem validação em aparelho móvel físico. Distribuição contém somente código e ícones.

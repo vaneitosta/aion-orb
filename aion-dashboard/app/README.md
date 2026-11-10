@@ -65,3 +65,14 @@ Radar adapta a quantidade de colunas à largura disponível; janelas estreitas e
 O iniciador `windows/abrir_aion.py`, instalado em `_automacao`, verifica o servidor local, inicia-o quando necessário e abre `_automacao/AION-Edge.lnk`. Esse atalho interno preserva o aplicativo e o perfil Edge originais. O atalho da Área de Trabalho chama o iniciador com o Python existente. Consulte `windows/ATALHO.md` no repositório para configuração e teste após reiniciar.
 
 O pacote 0.5.4 inclui seis arquivos da aplicação e incorpora a proteção de restauração 0.5.3. Scripts Windows ficam versionados separadamente, fora da lista de arquivos substituídos pelo AutoUpdate. Não inclui atalhos específicos do computador, perfis ou dados pessoais.
+
+
+## 0.5.5 — Biblioteca privada de estudos
+
+Biblioteca local com pesquisa sem acentos, filtro por área, contagem de arquivos disponíveis e abertura das cópias PDF. Interface responsiva com controles de pelo menos 44px, foco visível, limpeza de filtros e mensagens de falha que preservam a lista anterior.
+
+O catálogo e os materiais ficam em _materiais_estudo, fora da pasta de código. Nenhum material pessoal integra este pacote. A biblioteca não altera atividades, notas ou sessões. A configuração local ativo.json aponta para uma pasta de catálogo; sem catálogo, a biblioteca fica vazia.
+
+O servidor só atende arquivos PDF registrados no catálogo e dentro da pasta copias. Respostas da biblioteca não expõem caminhos de disco. Arquivos e API não entram no cache offline. A atualização não reinicia o computador nem o servidor já aberto: a nova API passa a funcionar no próximo início do servidor. O painel orienta quando encontra o servidor anterior.
+
+Validação: Chrome em perfil isolado; pesquisa/filtros, contagens, arquivo ausente, erro 500, orientação 404, AbortError simulado e recuperação; bloqueio de origem externa e de caminhos fora da biblioteca; backup/restauração e falhas; larguras 320 a 1440px. Sem validação em aparelho móvel físico. Distribuição contém somente código e ícones.
