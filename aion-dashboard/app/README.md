@@ -83,3 +83,10 @@ Validação: Chrome em perfil isolado; pesquisa/filtros, contagens, arquivo ause
 Botão Planejar estudo em cada material disponível. Cria atividade de Estudos pendente, sem prazo, somente após clique. Evita duplicar o mesmo material ou título, preserva o rascunho do formulário e não registra sessões nem conclusões. Gravação falha mantém a lista anterior; conflitos detectados entre janelas exigem recarga. A atividade usa o backup de dados existente e preserva o identificador do material.
 
 Testado com dados sintéticos: criação, duplicação, rascunho, PDF ausente, snapshot real, falha de armazenamento, conflito entre janelas e recarga. Regressão de biblioteca, filtros, restauração, falhas, offline e seis larguras aprovada. Materiais pessoais não são distribuídos. O servidor já aberto não é interrompido; ativação da biblioteca continua dependendo de seu próximo início.
+
+
+## 0.5.7 — Reconexão do backup automático
+
+Ao abrir sem servidor ou após falha de gravação, o AION tenta recuperar a proteção quando a conexão volta, ao retornar à janela e a cada 30 segundos enquanto visível. Eventos simultâneos compartilham uma tentativa. Requisições têm limite de dez segundos. Dados locais pendentes são salvos após reconectar; navegador vazio não sobrescreve um backup existente automaticamente. Não reinicia computador nem servidor.
+
+Testado em Chrome isolado: abertura offline e recuperação sem recarga, falha de gravação preservando dados, salvamento real após reconexão e eventos concorrentes sem duplicar gravações. Regressões de planejamento, biblioteca, backup/restauração, offline e layout passaram. Intervalos de 30 segundos e limite real de dez segundos não foram cronometrados. Materiais e cadastros não acompanham o pacote.
