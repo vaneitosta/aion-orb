@@ -1,19 +1,19 @@
 {
   "schema": 1,
   "channel": "stable",
-  "version": "0.5.7",
+  "version": "0.6.0",
   "package": "package.b64",
-  "sha256": "d906b4d170cf9072578a81fd10765fbf2fd8bc764bbe19f44484b3e123569012",
+  "sha256": "0ca14a67ef16a09dd990752573af700e3531932d5fb04289d381831ed60397e2",
   "files": [
     {
       "path": "index.html",
-      "sha256": "cfc6fafeca16845cd0e0ce2f8ebdaac320e045dd841aa6a1009284245e950540",
+      "sha256": "da7231784c28306ee33d62614d4072fbde4514edac37bfd72da5bb06a839f687",
       "bytes": 13454
     },
     {
       "path": "styles.css",
-      "sha256": "b50bd6af452b8ba11e162ac2cf3ef791f07c259e0c21613adcedc6e8a61ce66d",
-      "bytes": 17016
+      "sha256": "8f8469f58fda462b2067652e8e09632fb78356ddea25ce17a52f4d32668cd018",
+      "bytes": 22051
     },
     {
       "path": "legacy.js",
@@ -22,8 +22,8 @@
     },
     {
       "path": "tools.js",
-      "sha256": "647e59e0e422e940aeee0d12974c1f5c400fc865912a03e9779649de8bc5ac82",
-      "bytes": 12922
+      "sha256": "66e9aef9aeb1a3dd82db38602b25066a1680d935e193821e7882fc4cea97f79b",
+      "bytes": 29872
     },
     {
       "path": "protecao.js",
@@ -32,7 +32,7 @@
     },
     {
       "path": "sw.js",
-      "sha256": "c1124b04a47f2324632e8a8a71d430c8d572232597a4144246dbc011eff649f6",
+      "sha256": "6895c31f90405a38993fb1963e0c886561adc74633e494aec1a6dd985a23c62c",
       "bytes": 879
     },
     {
@@ -42,17 +42,17 @@
     },
     {
       "path": "servidor_aion.py",
-      "sha256": "2164f7168247c91885df2d3905962ba053bab55ff8a846c580c6025161481927",
-      "bytes": 9244
+      "sha256": "da4ac1df714ddf64e06017ca4a39c923e75597a56ffb15b0509e83592e0da3c3",
+      "bytes": 11978
     },
     {
       "path": "README.md",
-      "sha256": "c843ed8a192072c2dda3496bbf1cbb1ed7ad7a5625b6e915ba042d8b18f5bf31",
-      "bytes": 9578
+      "sha256": "849434d9826771ec36bd4a183351372953748b8abad4aca030eec12995fcee52",
+      "bytes": 11420
     },
     {
       "path": "aion-version.json",
-      "sha256": "03a964689455340556b34d375b3dda4b16b854b6bb7b240998fee25ec1f37401",
+      "sha256": "acb7971b3612533db116ea66e26dbb0c5846bfc78a14bca34a3e5e09bdd75e49",
       "bytes": 87
     },
     {
