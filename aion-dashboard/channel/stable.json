@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "channel": "stable",
+  "version": "0.5.2",
+  "package": "package.b64",
+  "sha256": "a92d4f30faadc14df07e2b0c50a0a4b64ec2a3b566f481d922463d1715c8f611",
+  "files": [
+    {
+      "path": "index.html",
+      "sha256": "8dfffc487462c80ecc575dd0758d454b33261464165fc8abd3760273f35350ab",
+      "bytes": 13402
+    },
+    {
+      "path": "sw.js",
+      "sha256": "b07c665f2cfca9cebb3a4a73858eb5eefa90831fa089f4c4540b7d86370130cb",
+      "bytes": 872
+    },
+    {
+      "path": "aion-version.json",
+      "sha256": "255f53016bac5027a5bbf209ed84a8ecb52a63932f2da062903bd02662067200",
+      "bytes": 82
+    }
+  ]
+}
