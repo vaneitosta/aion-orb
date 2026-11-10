@@ -1,0 +1,26 @@
+{
+  "id": "./",
+  "name": "AION Dashboard — Centro de Produtividade",
+  "short_name": "AION",
+  "description": "Estudos, projetos, trabalho e concentração em um painel local.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#091326",
+  "theme_color": "#0b1730",
+  "lang": "pt-BR",
+  "icons": [
+    {
+      "src": "./icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
