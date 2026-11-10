@@ -100,3 +100,22 @@
 @media(max-width:760px){.app{display:block}.side{position:relative;width:100%;height:auto;padding:16px;border-right:0;border-bottom:1px solid #355273;overflow:visible}.brand{font-size:20px;padding:0 0 14px}.brand span{display:inline}.workspace-nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.workspace-nav button{font-size:14px;padding:10px;white-space:normal;overflow-wrap:anywhere}.side-note{display:none}.main{padding:22px 16px 40px;width:100%}.top{align-items:flex-start}.top .badge{display:none}.workspace-view{margin-top:20px}.notes-layout{gap:16px}.note-fields,.note-filters{grid-template-columns:1fr}.area-tabs button{flex:1 1 40%}.note-actions button{flex:1 1 120px}.panel{padding:18px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
 @media(max-width:760px){.side{display:block}.brand{display:inline-block;padding:8px 0}.workspace-menu-toggle{display:block;float:right;min-height:44px;background:#193451;color:#edf3ff;border:1px solid #45617e;border-radius:9px;padding:10px 14px}.workspace-menu-toggle:focus-visible{outline:3px solid #ffd05c;outline-offset:3px}.workspace-nav{clear:both;padding-top:12px}.side:not(.menu-open) .workspace-nav{display:none}.side::after{content:'';display:block;clear:both}}
+
+/* Correções verificadas na gravação de 10/11: campos legíveis e ações claras. */
+#task-form,#session-form{display:grid;gap:14px;align-items:end}
+#task-form{grid-template-columns:repeat(3,minmax(0,1fr))}
+#session-form{grid-template-columns:repeat(2,minmax(0,1fr))}
+.entry-field{display:flex;flex-direction:column;gap:7px;min-width:0;font-size:14px;color:#c7d9ed}
+.field-task-name,.field-session-subject{grid-column:1/-1}
+#task-form input,#task-form select,#session-form input{min-width:0;width:100%;max-width:none;min-height:44px;flex:initial}
+#task-form button{grid-column:1/-1;justify-self:start;min-height:44px}
+#session-form button{min-height:44px}
+.hint,.field-help,.section-note,.tool-hint,.plan-info{font-size:13px;line-height:1.65}
+input[type=date]{color-scheme:dark}
+#view-library .materials-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.material-card{display:flex;flex-direction:column;align-items:flex-start}.material-card h3{line-height:1.5;margin-top:4px}.material-card .material-plan{margin-top:auto}.material-card a{margin:8px 0 10px}.material-card .material-note{margin-top:8px}
+.calc-grid .calc-eq{grid-column:1/-1}
+button:disabled{cursor:not-allowed;opacity:.5}
+.foot{font-size:12px;line-height:1.6}
+@media(max-width:1200px){#view-library .materials-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:650px){#task-form,#session-form,#view-library .materials-grid{grid-template-columns:1fr}.entry-field{grid-column:auto}#task-form button{width:100%}}

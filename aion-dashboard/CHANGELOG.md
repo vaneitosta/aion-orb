@@ -61,3 +61,10 @@ Notas são locais na chave aion-notes-v1 e têm exportação JSON própria e sna
 Enquanto o servidor antigo estiver aberto, as notas podem ser usadas e exportadas localmente; o painel informa que a cópia das notas no PC depende do próximo início do servidor. A atualização não reinicia servidor ou computador. Não há sincronização com outros dispositivos.
 
 Testes em Chrome isolado: oito áreas em 320/390/750/1440px, menu móvel, CRUD de notas, lembrete concluído/filtro, pin, literalidade de texto, exportação JSON, restauração real e falha, preservação de rascunho em erro, origem/esquema rejeitados, preservação de backup em navegador vazio. Regressões de biblioteca, planejamento, cadastros, reconexão, backups e offline passaram. Sem teste em aparelho físico ou leitor de tela.
+
+
+## 0.6.1 — Correções de legibilidade e confiabilidade
+
+Formulários com rótulos visíveis e espaço responsivo, biblioteca com cartões mais largos e títulos legíveis, versões antigas removidas dos painéis. Calculadora sem teclas duplicadas. Cronômetro bloqueia configuração durante a sessão, confirma reinício e informa falhas de gravação sem declarar sucesso. Removido controle de silêncio sem efeito; não há alertas sonoros ou de sistema. Notas podem importar o JSON exportado, preservando IDs já existentes. Proteção explica HTTP local e separa backup dos cadastros e do caderno.
+
+Testes em Chrome isolado: formulários em 320/390/750/1440/1918px, importação de notas e duplicatas, cronômetro concluído e falha de armazenamento, cancelamento de reinício, calculadora e divisão por zero. Regressões de notas, biblioteca, cadastros, restauração, reconexão e cache offline passaram. Sem teste físico móvel, leitor de tela ou instalação HTTPS. Nenhuma alteração do servidor nesta versão; basta recarregar a interface após salvar rascunhos.
