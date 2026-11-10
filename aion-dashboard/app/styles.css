@@ -38,3 +38,21 @@
 .form input:not([type=date]){flex:1 1 220px;min-width:min(100%,220px)}
 @media(max-width:1100px){.grid,.lower{grid-template-columns:minmax(0,1fr)}}
 @media(max-width:650px){#chart text{font-size:24px}}
+/* Biblioteca local: títulos podem ocupar várias linhas sem cortar texto. */
+.materials-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:14px;margin-top:16px}
+.material-card{min-width:0;border:1px solid #35506c;border-radius:12px;padding:16px}
+.material-card h3,.material-card p{overflow-wrap:anywhere;white-space:normal}
+.material-card a{color:#8edcff;text-decoration:underline;text-underline-offset:3px}
+.material-card a:focus-visible{outline:3px solid #ffd05c;outline-offset:4px}
+#materials-panel{grid-column:1/-1;min-width:0}
+.materials-controls{display:flex;flex-wrap:wrap;align-items:end;gap:12px;margin:18px 0}
+.materials-controls label{display:flex;flex:1 1 210px;flex-direction:column;gap:6px;min-width:0}
+.materials-controls input,.materials-controls select{width:100%;min-width:0;min-height:44px}
+.materials-controls button,.material-card a{min-height:44px}
+.materials-controls input,.materials-controls select,.materials-controls button{background:#102139;color:#edf3ff;border:1px solid #45617e;border-radius:9px;padding:10px 12px;font:inherit}
+.materials-controls input::placeholder{color:#b3c5dd}
+.materials-controls button{cursor:pointer}
+.materials-controls button:disabled{opacity:.55;cursor:default}
+.material-card a{display:inline-flex;align-items:center}
+.materials-controls button:focus-visible,.materials-controls input:focus-visible,.materials-controls select:focus-visible{outline:3px solid #ffd05c;outline-offset:3px}
+@media(max-width:480px){.materials-controls button{flex:1 1 100%}}

@@ -18,6 +18,28 @@ DATA_DIR = BASE_DIR / '_backups_dados'
 MAX_SIZE = 3_000_000
 MAX_FILES = 300
 
+def materials():
+    root = (BASE_DIR / '_materiais_estudo').resolve()
+    try:
+        active = json.loads((root / 'ativo.json').read_text(encoding='utf-8'))
+        folder = (root / active['pasta']).resolve()
+        if not folder.is_relative_to(root) or folder == root:
+            raise ValueError('pasta invalida')
+        catalog = json.loads((folder / 'catalogo.json').read_text(encoding='utf-8'))
+        result = []
+        for item in catalog['materiais']:
+            ident = item['id']
+            if not re.fullmatch(r'[a-zA-Z0-9_-]{1,80}', ident):
+                raise ValueError('id invalido')
+            file = (folder / item['copia']).resolve()
+            copies = (folder / 'copias').resolve()
+            if not copies.is_relative_to(folder) or not file.is_relative_to(copies) or file.suffix.lower() != '.pdf':
+                raise ValueError('arquivo invalido')
+            result.append((dict(id=ident, titulo=item['titulo'], area=item['area'], assunto=item['assunto'], disponivel=file.is_file()), file))
+        return result
+    except FileNotFoundError:
+        return []
+
 def validate(data):
     if not isinstance(data, dict) or data.get('version') != 2:
         raise ValueError('versao invalida')
@@ -93,7 +115,25 @@ class Handler(SimpleHTTPRequestHandler):
         return not origin or origin in ('http://127.0.0.1:'+str(self.server.server_port),'http://localhost:'+str(self.server.server_port))
     def do_GET(self):
         path=urlsplit(self.path).path
-        if path=='/api/status':
+        if path=='/api/materials' or path.startswith('/api/materials/'):
+            if not self.allowed():self.send_json({'error':'origem negada'},403);return
+            try:
+                items=materials()
+                if path=='/api/materials':
+                    self.send_json({'materials':[item for item,file in items]});return
+                match=re.fullmatch(r'/api/materials/([a-zA-Z0-9_-]{1,80})/file',path)
+                found=next((file for item,file in items if match and item['id']==match[1]),None)
+                if not found or not found.is_file():self.send_json({'error':'material nao encontrado'},404);return
+                with found.open('rb') as stream:
+                    self.send_response(200)
+                    self.send_header('Content-Type','application/pdf')
+                    self.send_header('Content-Length',str(os.fstat(stream.fileno()).st_size))
+                    self.send_header('Cache-Control','no-store')
+                    self.send_header('X-Content-Type-Options','nosniff')
+                    self.end_headers()
+                    self.copyfile(stream,self.wfile)
+            except (OSError,ValueError,KeyError,TypeError):self.send_json({'error':'biblioteca indisponivel'},500)
+        elif path=='/api/status':
             self.send_json({'ok':True,'dataBackupCount':len(all_backups()),'mode':'local-only'})
         elif path=='/api/backups':
             self.send_json({'files':[{'name':p.name,'bytes':p.stat().st_size} for p in all_backups()[:30]]})
