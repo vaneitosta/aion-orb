@@ -56,3 +56,5 @@
 .material-card a{display:inline-flex;align-items:center}
 .materials-controls button:focus-visible,.materials-controls input:focus-visible,.materials-controls select:focus-visible{outline:3px solid #ffd05c;outline-offset:3px}
 @media(max-width:480px){.materials-controls button{flex:1 1 100%}}
+
+.material-plan{display:block;min-height:44px;margin-top:12px;padding:10px 14px;background:#183959;color:#edf3ff;border:1px solid #45617e;border-radius:9px;font:inherit;cursor:pointer}.material-plan:disabled{opacity:.55;cursor:default}.material-plan:focus-visible{outline:3px solid #ffd05c;outline-offset:3px}

@@ -34,3 +34,10 @@ O catálogo e os materiais ficam em _materiais_estudo, fora da pasta de código.
 O servidor só atende arquivos PDF registrados no catálogo e dentro da pasta copias. Respostas da biblioteca não expõem caminhos de disco. Arquivos e API não entram no cache offline. A atualização não reinicia o computador nem o servidor já aberto: a nova API passa a funcionar no próximo início do servidor. O painel orienta quando encontra o servidor anterior.
 
 Validação: Chrome em perfil isolado; pesquisa/filtros, contagens, arquivo ausente, erro 500, orientação 404, AbortError simulado e recuperação; bloqueio de origem externa e de caminhos fora da biblioteca; backup/restauração e falhas; larguras 320 a 1440px. Sem validação em aparelho móvel físico. Distribuição contém somente código e ícones.
+
+
+## 0.5.6 — Planejar estudo a partir de um material
+
+Botão Planejar estudo em cada material disponível. Cria atividade de Estudos pendente, sem prazo, somente após clique. Evita duplicar o mesmo material ou título, preserva o rascunho do formulário e não registra sessões nem conclusões. Gravação falha mantém a lista anterior; conflitos detectados entre janelas exigem recarga. A atividade usa o backup de dados existente e preserva o identificador do material.
+
+Testado com dados sintéticos: criação, duplicação, rascunho, PDF ausente, snapshot real, falha de armazenamento, conflito entre janelas e recarga. Regressão de biblioteca, filtros, restauração, falhas, offline e seis larguras aprovada. Materiais pessoais não são distribuídos. O servidor já aberto não é interrompido; ativação da biblioteca continua dependendo de seu próximo início.

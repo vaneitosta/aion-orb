@@ -50,7 +50,7 @@ if('serviceWorker' in navigator&&secure){navigator.serviceWorker.register('./sw.
 else $('security-offline').textContent='Requer contexto seguro';
 })();
 
-// Biblioteca privada: apenas consulta; arquivos e catálogo ficam fora do código.
+// Biblioteca privada: planejamento explícito; arquivos e catálogo ficam fora do código.
 (()=>{'use strict';
  const host=document.getElementById('studies-area');if(!host)return;
  const panel=document.createElement('section');panel.className='panel wide';panel.id='materials-panel';
@@ -66,7 +66,9 @@ else $('security-offline').textContent='Requer contexto seguro';
    const area=document.createElement('p');area.textContent=item.area+' · '+item.assunto;
    const link=document.createElement(item.disponivel?'a':'span');link.textContent=item.disponivel?'Abrir cópia do PDF':'Cópia não encontrada';
    if(item.disponivel){link.href='/api/materials/'+encodeURIComponent(item.id)+'/file';link.target='_blank';link.rel='noopener noreferrer'}
-   card.append(title,area,link);list.append(card);
+   const plan=document.createElement('button');plan.type='button';plan.className='material-plan';plan.textContent='Planejar estudo';plan.disabled=!item.disponivel;plan.setAttribute('aria-label','Planejar estudo: '+item.titulo);
+   plan.addEventListener('click',()=>{const request={id:item.id,title:item.titulo};document.dispatchEvent(new CustomEvent('aion-plan-material',{detail:request}));status.textContent=request.message||'Não foi possível criar a atividade.'});
+   card.append(title,area,link,plan);list.append(card);
   }
   count.textContent=!loaded?'':items.length?selected.length+' de '+items.length+' materiais · '+selected.filter(i=>i.disponivel).length+' disponíveis.':'Nenhum material cadastrado nesta biblioteca.';
   if(loaded&&items.length&&!selected.length){const empty=document.createElement('p');empty.textContent='Nenhum resultado. Tente outro termo ou limpe os filtros.';list.append(empty)}
