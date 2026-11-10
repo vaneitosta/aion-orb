@@ -56,3 +56,12 @@ A restauração só prossegue após confirmação de gravação dos dados atuais
 O backup de código das 20h recupera horários perdidos quando possível e pode executar em bateria, com o usuário conectado. Isso não captura localStorage de um navegador fechado. ZIPs antigos podem conter dados: a separação aplica-se aos novos backups.
 
 O código da versão 0.5.3 e os scripts Windows estão versionados em `aion-dashboard/` no branch `dashboard-updates`. O pacote do AutoUpdate atualiza os cinco arquivos alterados da aplicação; os scripts Windows ficam fora da lista permitida do atualizador e são distribuídos separadamente em `windows/`. Instalações anteriores precisam copiar os scripts de backup corrigidos para `_automacao` e executar `Ativar-Backup-Diario.ps1`; a instalação local usada na validação já recebeu essas correções.
+
+
+## Atualização 0.5.4 — layout e inicialização
+
+Radar adapta a quantidade de colunas à largura disponível; janelas estreitas exibem os painéis em uma coluna. Os rótulos não ficam espremidos e o gráfico mantém as proporções do texto.
+
+O iniciador `windows/abrir_aion.py`, instalado em `_automacao`, verifica o servidor local, inicia-o quando necessário e abre `_automacao/AION-Edge.lnk`. Esse atalho interno preserva o aplicativo e o perfil Edge originais. O atalho da Área de Trabalho chama o iniciador com o Python existente. Consulte `windows/ATALHO.md` no repositório para configuração e teste após reiniciar.
+
+O pacote 0.5.4 inclui seis arquivos da aplicação e incorpora a proteção de restauração 0.5.3. Scripts Windows ficam versionados separadamente, fora da lista de arquivos substituídos pelo AutoUpdate. Não inclui atalhos específicos do computador, perfis ou dados pessoais.

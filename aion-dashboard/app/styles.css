@@ -29,3 +29,12 @@
 /* AION 0.5: blocos instaláveis e ferramentas locais */
 .tool-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px;margin-top:15px}.tool-field{background:#0e1e36;color:#f1f7ff;border:1px solid #355273;padding:12px;border-radius:9px;max-width:100%}.calc-screen{font-size:30px;letter-spacing:.02em;text-align:right;width:100%;margin:14px 0}.calc-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px}.calc-grid button{background:#203d62;color:#eff8ff;border:1px solid #426188;border-radius:10px;min-height:49px;font-size:17px}.calc-grid .calc-eq{background:#f8c94e;color:#15243e;font-weight:800}.tool-row{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin:12px 0}.tool-row>label{color:#afc6df;font-size:13px}.focus-clock{font-weight:800;font-variant-numeric:tabular-nums;letter-spacing:.06em;font-size:clamp(34px,5vw,53px);text-align:center;margin:18px 0 6px}.focus-bar{height:9px;background:#263f60;border-radius:99px;overflow:hidden}.focus-bar>div{height:100%;background:#7ad3e7;width:0;transition:width .5s}.status-line{font-size:12px;color:#9ec1dd;line-height:1.5;min-height:25px}.focus-dnd{border:1px solid #576380;background:#1b3151;padding:10px;border-radius:9px}.focus-dnd.active{border-color:#7ad3e7}.security-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.security-grid>div{background:#192f4b;padding:13px;border-radius:11px}.security-grid strong{display:block;margin-top:6px}.chip{font-size:11px;color:#91d9c3}.tool-hint{font-size:12px;color:#9fb6d0;line-height:1.6;margin-top:12px}button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #8ad9fa;outline-offset:2px}#app-install[hidden]{display:none}@media(max-width:850px){.tool-grid{grid-template-columns:1fr}}@media(max-width:520px){.security-grid{grid-template-columns:1fr}.calc-grid button{min-height:53px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+/* Narrow windows: keep labels readable instead of squeezing seven columns. */
+.forecast{grid-template-columns:repeat(auto-fit,minmax(min(100%,64px),1fr))}
+.day{min-width:0;padding:12px 4px}
+.day small{overflow-wrap:anywhere;line-height:1.45}
+.between>span.hint{flex-shrink:0;white-space:nowrap}
+.form input:not([type=date]){flex:1 1 220px;min-width:min(100%,220px)}
+@media(max-width:1100px){.grid,.lower{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:650px){#chart text{font-size:24px}}

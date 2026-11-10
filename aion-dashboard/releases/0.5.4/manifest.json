@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "channel": "stable",
+  "version": "0.5.4",
+  "package": "package.b64",
+  "sha256": "2abe653a094e5bee3dc6d0edb44156623cfd7085e604e1d74fa33cfcaaf95bfe",
+  "files": [
+    {
+      "path": "index.html",
+      "sha256": "8ef9e30b9ca79918e06ccafaaf79a4cc005605eb627779f193f204b419d746f1",
+      "bytes": 13454
+    },
+    {
+      "path": "styles.css",
+      "sha256": "c0d8cb84fdc8442b3e135fce0680728645c5d28c3b17b2f85e9eb28c8e0a9bd2",
+      "bytes": 15134
+    },
+    {
+      "path": "protecao.js",
+      "sha256": "ab837bf81e4ad2c20661b08e9eafa2e8cf2c7778aa700da09106eb7d4caab3bd",
+      "bytes": 5523
+    },
+    {
+      "path": "sw.js",
+      "sha256": "0563247f75384b1d1d066a302777b772a3e12c460347af9360c4137806df14f1",
+      "bytes": 876
+    },
+    {
+      "path": "README.md",
+      "sha256": "9f9b37563e26908d2ec35be2cf1c139431b22d98b2a1f386c97e66dd8f01e8ef",
+      "bytes": 6442
+    },
+    {
+      "path": "aion-version.json",
+      "sha256": "6543e59d9c515384f73dde7d59ddf81745a70d9dd6c50a9e6e390110e6375220",
+      "bytes": 87
+    }
+  ]
+}

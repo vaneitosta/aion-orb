@@ -1,5 +1,13 @@
 # AION Dashboard
 
+## 0.5.4 — 2026-11-09
+
+Layout responsivo corrigido: Radar sem rótulos cortados, painéis em uma coluna até 1100px, campo de nome com largura mínima e gráfico sem deformação do texto. Cache estático atualizado. Pacote cumulativo com as correções de restauração 0.5.3.
+
+Iniciador Windows abrir_aion.py versionado, com guia para preservar o atalho/perfil Edge. O inicializador permanece fora do pacote da aplicação; o AutoUpdate não o sobrescreve. Nenhum atalho pessoal ou perfil foi publicado.
+
+Testes de layout passaram em 320, 390, 750, 950, 1100 e 1440px; Chrome headless isolado validou snapshots, persistência, restauração, falha HTTP 500 e offline. Iniciador testado com servidor real em porta isolada; abertura do Edge registrada sem tocar perfil pessoal. Reinício do Windows não realizado. Comando de desligamento do servidor principal bloqueado pela revisão automática.
+
 ## 0.5.3 — 2026-11-09
 
 Restauração interrompida se o backup preventivo falhar. Bloqueio de operações concorrentes, validação de dados e tentativa de reversão de escritas parciais. Estado sem snapshots explicitado na interface. Cache estático atualizado.
