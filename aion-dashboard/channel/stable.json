@@ -1,19 +1,19 @@
 {
   "schema": 1,
   "channel": "stable",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "package": "package.b64",
-  "sha256": "0ca14a67ef16a09dd990752573af700e3531932d5fb04289d381831ed60397e2",
+  "sha256": "84648bcc5a1fe3593352b18c79df6fd818c4ea2d541949d1a14d201d5b82d92f",
   "files": [
     {
       "path": "index.html",
-      "sha256": "da7231784c28306ee33d62614d4072fbde4514edac37bfd72da5bb06a839f687",
-      "bytes": 13454
+      "sha256": "23cddb9f15e7f793f1f7c7ee65a4719f4f4e8035e4de7df2ab1c12c73c866fe7",
+      "bytes": 14172
     },
     {
       "path": "styles.css",
-      "sha256": "8f8469f58fda462b2067652e8e09632fb78356ddea25ce17a52f4d32668cd018",
-      "bytes": 22051
+      "sha256": "2670bde05f8767424f27a2c750059a15ee73e67d90fb40c156a34e8d4e624c74",
+      "bytes": 23572
     },
     {
       "path": "legacy.js",
@@ -22,8 +22,8 @@
     },
     {
       "path": "tools.js",
-      "sha256": "66e9aef9aeb1a3dd82db38602b25066a1680d935e193821e7882fc4cea97f79b",
-      "bytes": 29872
+      "sha256": "834eae5d0ccdec471c4893c151fbbd654ee5a7da4f21218dd4443b59ca27212a",
+      "bytes": 32157
     },
     {
       "path": "protecao.js",
@@ -32,8 +32,8 @@
     },
     {
       "path": "sw.js",
-      "sha256": "6895c31f90405a38993fb1963e0c886561adc74633e494aec1a6dd985a23c62c",
-      "bytes": 879
+      "sha256": "9025359352e899120a0d9456d3dd8f2a93ff8c971d956ae87ae87601aca773dc",
+      "bytes": 867
     },
     {
       "path": "manifest.webmanifest",
@@ -47,12 +47,12 @@
     },
     {
       "path": "README.md",
-      "sha256": "849434d9826771ec36bd4a183351372953748b8abad4aca030eec12995fcee52",
-      "bytes": 11420
+      "sha256": "bc1a4cc08265491a5affee688c9f6de915f683fe9e3431545e2ab488552c5dea",
+      "bytes": 12509
     },
     {
       "path": "aion-version.json",
-      "sha256": "acb7971b3612533db116ea66e26dbb0c5846bfc78a14bca34a3e5e09bdd75e49",
+      "sha256": "4c44fa37a623872f4afc2c4c1400687b42a96debc4788106b8bc7b003d42c3cf",
       "bytes": 87
     },
     {
