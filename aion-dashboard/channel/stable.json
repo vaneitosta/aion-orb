@@ -1,13 +1,13 @@
 {
   "schema": 1,
   "channel": "stable",
-  "version": "0.5.6",
+  "version": "0.5.7",
   "package": "package.b64",
-  "sha256": "038233ba8c1be80af60de332a9e8591b1a8bb76bb11173695dec2e8f3d408f0e",
+  "sha256": "d906b4d170cf9072578a81fd10765fbf2fd8bc764bbe19f44484b3e123569012",
   "files": [
     {
       "path": "index.html",
-      "sha256": "a13cc4c8810475ca04cac1f4d1287fa239686ebcc46c955e13efbcd9116c5671",
+      "sha256": "cfc6fafeca16845cd0e0ce2f8ebdaac320e045dd841aa6a1009284245e950540",
       "bytes": 13454
     },
     {
@@ -27,13 +27,13 @@
     },
     {
       "path": "protecao.js",
-      "sha256": "ab837bf81e4ad2c20661b08e9eafa2e8cf2c7778aa700da09106eb7d4caab3bd",
-      "bytes": 5523
+      "sha256": "0f81afc0ea77075f43385773340ae508c7aeb75d0df858211edf46efa1179918",
+      "bytes": 6419
     },
     {
       "path": "sw.js",
-      "sha256": "dc29afeb6e1f9ac03af3d26c2e809785cac93bba38de649cd7e91d161c2c9e76",
-      "bytes": 874
+      "sha256": "c1124b04a47f2324632e8a8a71d430c8d572232597a4144246dbc011eff649f6",
+      "bytes": 879
     },
     {
       "path": "manifest.webmanifest",
@@ -47,12 +47,12 @@
     },
     {
       "path": "README.md",
-      "sha256": "787157481570540c816a8f619acbfb9a3848b335fbbf1cf5c3201eafd551cef7",
-      "bytes": 8678
+      "sha256": "c843ed8a192072c2dda3496bbf1cbb1ed7ad7a5625b6e915ba042d8b18f5bf31",
+      "bytes": 9578
     },
     {
       "path": "aion-version.json",
-      "sha256": "5afdc1074843082551cd974685fcf07e3b56a568249ad8648aba1478d6867367",
+      "sha256": "03a964689455340556b34d375b3dda4b16b854b6bb7b240998fee25ec1f37401",
       "bytes": 87
     },
     {
