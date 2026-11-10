@@ -90,3 +90,16 @@ Testado com dados sintéticos: criação, duplicação, rascunho, PDF ausente, s
 Ao abrir sem servidor ou após falha de gravação, o AION tenta recuperar a proteção quando a conexão volta, ao retornar à janela e a cada 30 segundos enquanto visível. Eventos simultâneos compartilham uma tentativa. Requisições têm limite de dez segundos. Dados locais pendentes são salvos após reconectar; navegador vazio não sobrescreve um backup existente automaticamente. Não reinicia computador nem servidor.
 
 Testado em Chrome isolado: abertura offline e recuperação sem recarga, falha de gravação preservando dados, salvamento real após reconexão e eventos concorrentes sem duplicar gravações. Regressões de planejamento, biblioteca, backup/restauração, offline e layout passaram. Intervalos de 30 segundos e limite real de dez segundos não foram cronometrados. Materiais e cadastros não acompanham o pacote.
+
+
+## 0.6.0 — Áreas organizadas, caderno e mural
+
+Oito áreas separadas: Visão geral, Atividades, Estudos, Biblioteca, Agenda, Anotações, Ferramentas e Proteção dos dados. Uma área visível por vez; menu lateral no desktop e recolhível no celular. A identidade escura foi preservada, com controles maiores, rótulos e foco visível. Atividades continuam filtráveis por área.
+
+Caderno com título, texto, busca, edição, fixação e exclusão confirmada. Lembretes têm data opcional e conclusão manual, sem notificações externas. O botão Anotar dúvida da biblioteca prepara um rascunho referenciando o material; nenhum texto é salvo automaticamente antes de confirmar.
+
+Notas são locais na chave aion-notes-v1 e têm exportação JSON própria e snapshots separados em _backups_anotacoes. O backup de atividades existente permanece compatível e não inclui o caderno. Restauração do caderno exige copiar a versão atual primeiro e aborta em falha/conflito. Navegador vazio não substitui a cópia existente. Os snapshots de notas não são removidos automaticamente nesta versão.
+
+Enquanto o servidor antigo estiver aberto, as notas podem ser usadas e exportadas localmente; o painel informa que a cópia das notas no PC depende do próximo início do servidor. A atualização não reinicia servidor ou computador. Não há sincronização com outros dispositivos.
+
+Testes em Chrome isolado: oito áreas em 320/390/750/1440px, menu móvel, CRUD de notas, lembrete concluído/filtro, pin, literalidade de texto, exportação JSON, restauração real e falha, preservação de rascunho em erro, origem/esquema rejeitados, preservação de backup em navegador vazio. Regressões de biblioteca, planejamento, cadastros, reconexão, backups e offline passaram. Sem teste em aparelho físico ou leitor de tela.

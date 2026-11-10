@@ -18,6 +18,45 @@ DATA_DIR = BASE_DIR / '_backups_dados'
 MAX_SIZE = 3_000_000
 MAX_FILES = 300
 
+def validate_notes(data):
+    if not isinstance(data,dict) or data.get('version')!=1 or not isinstance(data.get('items'),list) or len(data['items'])>500:
+        raise ValueError('anotacoes invalidas')
+    seen=set()
+    for n in data['items']:
+        if not isinstance(n,dict) or not isinstance(n.get('id'),str) or not re.fullmatch(r'[a-zA-Z0-9_-]{1,80}',n['id']) or n['id'] in seen:
+            raise ValueError('id invalido')
+        seen.add(n['id'])
+        if not isinstance(n.get('title'),str) or not 1<=len(n['title'])<=120 or not isinstance(n.get('text'),str) or len(n['text'])>10000 or n.get('kind') not in ('note','reminder') or type(n.get('pinned')) is not bool or type(n.get('done')) is not bool:
+            raise ValueError('conteudo invalido')
+        if not isinstance(n.get('date'),str) or (n['date'] and not re.fullmatch(r'\d{4}-\d{2}-\d{2}',n['date'])) or not isinstance(n.get('updatedAt'),str):
+            raise ValueError('data invalida')
+    return data
+
+def note_files():
+    return sorted((BASE_DIR/'_backups_anotacoes').glob('AION-Notas-*.json'),reverse=True)
+
+def backup_notes(data):
+    data=validate_notes(data)
+    canonical=json.dumps(data,ensure_ascii=False,sort_keys=True,separators=(',',':')).encode('utf-8')
+    if len(canonical)>MAX_SIZE:raise ValueError('anotacoes excedem limite')
+    digest=hashlib.sha256(canonical).hexdigest()
+    files=note_files()
+    if files:
+        try:
+            if json.loads(files[0].read_text(encoding='utf-8')).get('sha256')==digest:return {'status':'sem alteracoes'}
+        except (OSError,ValueError):pass
+    folder=BASE_DIR/'_backups_anotacoes';folder.mkdir(exist_ok=True)
+    payload={'savedAt':datetime.now(timezone.utc).isoformat(),'sha256':digest,'data':data}
+    name='AION-Notas-'+datetime.now(timezone.utc).strftime('%Y%m%d-%H%M%S-%f')+'-'+uuid.uuid4().hex[:8]+'.json'
+    fd,tmp=tempfile.mkstemp(prefix='.notes-',suffix='.tmp',dir=folder)
+    try:
+        with os.fdopen(fd,'w',encoding='utf-8') as stream:
+            json.dump(payload,stream,ensure_ascii=False,indent=2);stream.flush();os.fsync(stream.fileno())
+        os.replace(tmp,folder/name)
+    finally:
+        if os.path.exists(tmp):os.unlink(tmp)
+    return {'status':'salvo'}
+
 def materials():
     root = (BASE_DIR / '_materiais_estudo').resolve()
     try:
@@ -115,7 +154,13 @@ class Handler(SimpleHTTPRequestHandler):
         return not origin or origin in ('http://127.0.0.1:'+str(self.server.server_port),'http://localhost:'+str(self.server.server_port))
     def do_GET(self):
         path=urlsplit(self.path).path
-        if path=='/api/materials' or path.startswith('/api/materials/'):
+        if path=='/api/notes/latest':
+            if not self.allowed():self.send_json({'error':'origem negada'},403);return
+            files=note_files()
+            if not files:self.send_json({'error':'sem anotacoes'},404);return
+            try:self.send_json(json.loads(files[0].read_text(encoding='utf-8')))
+            except (OSError,ValueError):self.send_json({'error':'backup ilegivel'},500)
+        elif path=='/api/materials' or path.startswith('/api/materials/'):
             if not self.allowed():self.send_json({'error':'origem negada'},403);return
             try:
                 items=materials()
@@ -134,7 +179,7 @@ class Handler(SimpleHTTPRequestHandler):
                     self.copyfile(stream,self.wfile)
             except (OSError,ValueError,KeyError,TypeError):self.send_json({'error':'biblioteca indisponivel'},500)
         elif path=='/api/status':
-            self.send_json({'ok':True,'dataBackupCount':len(all_backups()),'mode':'local-only'})
+            self.send_json({'ok':True,'dataBackupCount':len(all_backups()),'mode':'local-only','notesSupported':True})
         elif path=='/api/backups':
             self.send_json({'files':[{'name':p.name,'bytes':p.stat().st_size} for p in all_backups()[:30]]})
         elif path=='/api/backup/latest':
@@ -147,14 +192,15 @@ class Handler(SimpleHTTPRequestHandler):
         else:
             super().do_GET()
     def do_POST(self):
-        if urlsplit(self.path).path!='/api/backup':self.send_json({'error':'nao encontrado'},404);return
+        path=urlsplit(self.path).path
+        if path not in ('/api/backup','/api/notes'):self.send_json({'error':'nao encontrado'},404);return
         if not self.allowed() or self.headers.get('Content-Type','').split(';')[0].strip().lower()!='application/json':
             self.send_json({'error':'origem ou tipo de conteudo negado'},403);return
         try:
             n=int(self.headers.get('Content-Length','0'))
             if n<2 or n>MAX_SIZE:self.send_json({'error':'tamanho invalido'},413);return
             raw=self.rfile.read(n)
-            result=backup(json.loads(raw.decode('utf-8')))
+            result=(backup_notes if path=='/api/notes' else backup)(json.loads(raw.decode('utf-8')))
             self.send_json(result)
         except (ValueError,UnicodeDecodeError,json.JSONDecodeError) as e:
             self.send_json({'error':str(e)},400)
